@@ -8,6 +8,8 @@ import {
     Image,
 } from 'react-native';
 
+//var EnterXYZ = require('./EnterXYZ');
+
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -47,10 +49,35 @@ var styles = StyleSheet.create({
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
+    dataText: {
+        fontSize: 15,
+        textAlign: 'center',
+        textShadowColor: 'gray',
+        textShadowOffset: {width: 1, height: 1,},
+        textShadowRadius: 10,
+    },
+    flowDown: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        alignSelf: 'stretch',
+    },
 });
 
 
 class Start extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            leftX: 10,
+            leftY: 0,
+            leftZ: 0,
+            rightX: 0,
+            rightY: 0,
+            rightZ: 0,
+        };
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -59,6 +86,24 @@ class Start extends Component {
                 <View style={styles.flowRight}>
                     <Text style={styles.smallTexts}>Left</Text>
                     <Text style={styles.smallTexts}>Right</Text>
+                </View>
+                <View style={styles.flowRight}>
+                    <View style={styles.flowDown}>
+                        <Text style={styles.dataText}>Sph = {this.state.leftX}
+                        </Text>
+                        <Text style={styles.dataText}>Cyl = {this.state.leftY}
+                        </Text>
+                        <Text style={styles.dataText}>Axis = {this.state.leftZ}
+                        </Text>
+                    </View>
+                    <View style={styles.flowDown}>
+                        <Text style={styles.dataText}>Sph = {this.state.rightX}
+                        </Text>
+                        <Text style={styles.dataText}>Cyl = {this.state.rightY}
+                        </Text>
+                        <Text style={styles.dataText}>Axis = {this.state.rightZ}
+                        </Text>
+                    </View>
                 </View>
             </View>
         );
