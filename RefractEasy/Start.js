@@ -8,8 +8,7 @@ import {
     Image,
 } from 'react-native';
 
-//var EnterXYZ = require('./EnterXYZ');
-
+var EnterXYZ = require('./EnterXYZ');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -69,13 +68,28 @@ class Start extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 0,
-            leftY: 0,
-            leftZ: 0,
             rightX: 0,
             rightY: 0,
             rightZ: 0,
+            leftX: 0,
+            leftY: 0,
+            leftZ: 0,
         };
+    }
+
+    onStartRight(){
+        this.props.navigator.push({
+            title: 'Input Initial Values',
+            component: EnterXYZ,
+            passProps: {
+                rightX: this.state.rightX,
+                rightY: this.state.rightY,
+                rightZ: this.state.rightZ,
+                leftX: this.state.leftX,
+                leftY: this.state.leftY,
+                leftZ: this.state.leftZ,
+            },
+        });
     }
 
     render(){
@@ -84,7 +98,7 @@ class Start extends Component {
                 <Text style={styles.description}>Press one eye to begin</Text>
                 <Image source={require('./Resources/Start-eyes.png')} style={styles.image}/>
                 <View style={styles.flowRight}>
-                    <Text style={styles.smallTexts}>Right</Text>
+                    <Text style={styles.smallTexts} onPress={this.onStartRight.bind(this)}>Right</Text>
                     <Text style={styles.smallTexts}>Left</Text>
                 </View>
                 <View style={styles.flowRight}>
