@@ -69,7 +69,7 @@ class Start extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 10,
+            leftX: 0,
             leftY: 0,
             leftZ: 0,
             rightX: 0,
@@ -84,24 +84,24 @@ class Start extends Component {
                 <Text style={styles.description}>Press one eye to begin</Text>
                 <Image source={require('./Resources/Start-eyes.png')} style={styles.image}/>
                 <View style={styles.flowRight}>
-                    <Text style={styles.smallTexts}>Left</Text>
                     <Text style={styles.smallTexts}>Right</Text>
+                    <Text style={styles.smallTexts}>Left</Text>
                 </View>
                 <View style={styles.flowRight}>
-                    <View style={styles.flowDown}>
-                        <Text style={styles.dataText}>Sph = {this.state.leftX}
-                        </Text>
-                        <Text style={styles.dataText}>Cyl = {this.state.leftY}
-                        </Text>
-                        <Text style={styles.dataText}>Axis = {this.state.leftZ}
-                        </Text>
-                    </View>
                     <View style={styles.flowDown}>
                         <Text style={styles.dataText}>Sph = {this.state.rightX}
                         </Text>
                         <Text style={styles.dataText}>Cyl = {this.state.rightY}
                         </Text>
                         <Text style={styles.dataText}>Axis = {this.state.rightZ}
+                        </Text>
+                    </View>
+                    <View style={styles.flowDown}>
+                        <Text style={styles.dataText}>Sph = {this.state.leftX}
+                        </Text>
+                        <Text style={styles.dataText}>Cyl = {this.state.leftY}
+                        </Text>
+                        <Text style={styles.dataText}>Axis = {this.state.leftZ}
                         </Text>
                     </View>
                 </View>
