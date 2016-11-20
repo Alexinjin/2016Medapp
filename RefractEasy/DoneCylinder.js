@@ -13,13 +13,6 @@ var styles = ReactNative.StyleSheet.create({
 		flex:1
 	}
 });
-
-class HelloWorld extends React.Component{
-	render(){
-		return React.createElement(ReactNative.Text, {style: styles.text}, "\n\nAdd 0.25 CYL, so that Y = Y + 0.25.\nYou're done with Cylinder refinement");
-	}
-}
-
 class PropertyFinderApp extends React.Component{
 	render(){
 		return (
