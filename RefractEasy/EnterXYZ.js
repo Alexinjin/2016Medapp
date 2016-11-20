@@ -61,6 +61,9 @@ var styles = StyleSheet.create({
     },
 });
 
+var SphIns = require('./SphIns');
+
+
 class EnterXYZ extends Component {
     constructor(props){
         super(props);
@@ -90,11 +93,27 @@ class EnterXYZ extends Component {
         console.log('Z: ' + this.state.Z);
     }
 
-    // onBeginPressed(){
-    //     this.props.navigator.push({
-    //         component:
-    //     });
-    // }
+    onBeginPressed(){
+        console.log('on begin pressed')
+        console.log('x: ' + this.state.X);
+        console.log('y: ' + this.state.Y);
+        console.log('Z: ' + this.state.Z);
+        console.log('eye: ' + this.state.eye);
+        this.props.navigator.push({
+            title: 'Sphere',
+            component: SphIns,
+            passPros: {
+                X: this.state.X,
+                Y: this.state.Y,
+                Z: this.state.Z,
+                eye: this.state.eye,
+            },
+        });
+        console.log('x2: ' + this.state.X);
+        console.log('y2: ' + this.state.Y);
+        console.log('Z2: ' + this.state.Z);
+        console.log('eye2: ' + this.state.eye);
+    }
 
     render(){
         return (
@@ -105,16 +124,17 @@ class EnterXYZ extends Component {
                 <View style={styles.flowRight}>
                     <TextInput style={styles.inputBox}
                         onChange={this.onXChanged.bind(this)}
+                        keyboardType='number-pad'
                         placeholder='Sph'/>
                     <TextInput style={styles.inputBox}
-                        onChange={this.onXChanged.bind(this)}
+                        onChange={this.onYChanged.bind(this)}
                         placeholder='Cyl'/>
                     <TextInput style={styles.inputBox}
-                        onChange={this.onXChanged.bind(this)}
+                        onChange={this.onZChanged.bind(this)}
                         placeholder='Axis'/>
                 </View>
                 <TouchableHighlight style={styles.button}
-                    /*onPress={this.onBeginPressed.bind(this)}*/
+                    onPress={this.onBeginPressed.bind(this)}
                     underlayColor='#99d9f4'>
                     <Text style={styles.buttonText}>
                         Begin Refraction
