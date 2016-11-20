@@ -76,15 +76,15 @@ class EnterXYZ extends Component {
     }
 
     onXChanged(event){
-        this.setState({ X: event.nativeEvent.text });
+        this.setState({ X: parseFloat(event.nativeEvent.text) });
     }
 
     onYChanged(event){
-        this.setState({ Y: event.nativeEvent.text });
+        this.setState({ Y: parseFloat(event.nativeEvent.text) });
     }
 
     onZChanged(event){
-        this.setState({ Z: event.nativeEvent.text });
+        this.setState({ Z: parseFloat(event.nativeEvent.text) });
     }
 
     onBeginPressed(){
