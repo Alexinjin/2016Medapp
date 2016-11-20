@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
-
+var LastScreen = require('./LastScreen');
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -57,18 +57,41 @@ var styles = StyleSheet.create({
 })
 
 class Screen_6e2 extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+        rightX: 10,
+        rightY: 190,
+        rightZ: 0,
+        leftX: 0,
+        leftY: 0,
+        leftZ: 0,
+    };
+  }
+  PressNext(){
+    this.props.navigator.push({
+      title: "Eye Completed",
+      component: LastScreen,
+      passProps: {
+          X: this.state.rightX,
+          Y: this.state.rightY,
+          Z: this.state.rightZ,
+      },
+    });
+  }
   render(){
     return(
       <View style = {styles.container}>
         <Text style = {styles.description}>Setting Final Cylinder Value</Text>
         <View>
           <Text style = {styles.dataText}>1. Subtract 0.25 from CYL</Text>
-          <Text style = {styles.dataText}>2. CYL now = Y - 0.25 </Text>
+          <Text style = {styles.dataText}>2. CYL now = {this.state.rightY-0.25} </Text>
           <Text style = {styles.dataText}>3. You are done with Cylinder Refinement</Text>
         </View>
         <View style = {styles.flowRight}>
           <TouchableHighlight
             style = {styles.button}
+            onPress={this.PressNext.bind(this)}
             uderlayColor = 'blue'>
             <Text style = {styles.dataText}>Next</Text>
           </TouchableHighlight>
