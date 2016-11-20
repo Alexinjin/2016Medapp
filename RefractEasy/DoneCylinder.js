@@ -1,36 +1,65 @@
-'use strict';
-var React = require('react'); //sign to variable
-var ReactNative = require('react-native'); //sign to variable
+"use-strict";
+import React, {Component} from 'react';
+import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
 
-var styles = ReactNative.StyleSheet.create({
-	text:{
-		color: 'black',
-		backgroundColor:'white',
-		fontSize: 30,
-		margin: 20
-	},
-	container:{
-		flex:1
-	}
-});
-class Display extends React.Component{
-	render(){
-		return React.createElement(ReactNative.Text, {style: styles.text}, "\n\nAdd 0.25 CYL, so that Y = Y + 0.25.\nYou're done with Cylinder refinement");
-	}
+
+var styles = StyleSheet.create({
+  container: {
+      marginTop: 100,
+      padding: 30,
+      alignItems: 'center',
+  },
+  description: {
+      marginBottom: 50,
+      fontSize: 30,
+      textAlign: 'center',
+      color: '#2077E8',
+  },
+  flowRight: {
+      paddingLeft: 5,
+      paddingRight: 5,
+      marginTop: 50,
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
+  dataText: {
+      padding: 5,
+      fontSize: 15,
+      textAlign: 'left',
+  },
+  button: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 3,
+    borderRadius: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+})
+
+class DoneCylinder extends Component{
+  render(){
+    return(
+      <View style = {styles.container}>
+        <View>
+          <Text style = {styles.description}>Add 0.25 to CYL</Text>
+          <Text style = {styles.description}> CYL: Y+0.25 </Text>
+          <Text style = {styles.dataText}>You're done with Cylinder refinement</Text>
+          </View>
+        <View style = {styles.flowRight}>
+          <TouchableHighlight
+            style = {styles.button}
+            uderlayColor = 'blue'>
+            <Text style = {styles.dataText}>Next</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+
+    );
+  }
 }
-class PropertyFinderApp extends React.Component{
-	render(){
-		return (
-			<ReactNative.NavigatorIOS
-			style = {styles.container}
-			initialRoute={{
-				title: 'MedApp',
-				component: Display,
-			}}/>
-		);
-	}
-}
 
-
-
-ReactNative.AppRegistry.registerComponent('AwesomeProject', function() { return PropertyFinderApp });
+module.exports = DoneCylinder;
