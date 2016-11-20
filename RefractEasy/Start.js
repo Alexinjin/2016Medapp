@@ -68,11 +68,11 @@ class Start extends Component {
     constructor(props){
         super(props);
         this.state = {
-            rightX: 0,
+            rightX: 10,
             rightY: 0,
             rightZ: 0,
             leftX: 0,
-            leftY: 0,
+            leftY: 20,
             leftZ: 0,
         };
     }
@@ -82,12 +82,10 @@ class Start extends Component {
             title: 'Input Initial Values',
             component: EnterXYZ,
             passProps: {
-                rightX: this.state.rightX,
-                rightY: this.state.rightY,
-                rightZ: this.state.rightZ,
-                leftX: this.state.leftX,
-                leftY: this.state.leftY,
-                leftZ: this.state.leftZ,
+                X: this.state.rightX,
+                Y: this.state.rightY,
+                Z: this.state.rightZ,
+                eye: 'right',
             },
         });
     }
@@ -98,8 +96,13 @@ class Start extends Component {
                 <Text style={styles.description}>Press one eye to begin</Text>
                 <Image source={require('./Resources/Start-eyes.png')} style={styles.image}/>
                 <View style={styles.flowRight}>
-                    <Text style={styles.smallTexts} onPress={this.onStartRight.bind(this)}>Right</Text>
-                    <Text style={styles.smallTexts}>Left</Text>
+                    <Text style={styles.smallTexts}
+                        onPress={this.onStartRight.bind(this)}>
+                        Right
+                    </Text>
+                    <Text style={styles.smallTexts}>
+                        Left
+                    </Text>
                 </View>
                 <View style={styles.flowRight}>
                     <View style={styles.flowDown}>
