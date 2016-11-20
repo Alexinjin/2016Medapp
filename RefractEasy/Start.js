@@ -68,11 +68,11 @@ class Start extends Component {
     constructor(props){
         super(props);
         this.state = {
-            rightX: 10,
+            rightX: 0,
             rightY: 0,
             rightZ: 0,
             leftX: 0,
-            leftY: 20,
+            leftY: 0,
             leftZ: 0,
         };
     }

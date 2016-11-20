@@ -22,7 +22,7 @@ var styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         marginBottom: 30,
-        flex: 4,
+        flex: 1,
     },
     inputBox: {
         height: 36,
@@ -52,7 +52,7 @@ var styles = StyleSheet.create({
         marginBottom: 10,
         alignSelf: 'stretch',
         justifyContent: 'center',
-        flex: 2,
+        flex: 1,
     },
     buttonText: {
         fontSize: 18,
@@ -76,43 +76,28 @@ class EnterXYZ extends Component {
     }
 
     onXChanged(event){
-        console.log('on X changed');
         this.setState({ X: event.nativeEvent.text });
-        console.log('X: ' + this.state.X);
     }
 
     onYChanged(event){
-        console.log('on Y changed');
         this.setState({ Y: event.nativeEvent.text });
-        console.log('Y: ' + this.state.Y);
     }
 
     onZChanged(event){
-        console.log('on Z changed');
         this.setState({ Z: event.nativeEvent.text });
-        console.log('Z: ' + this.state.Z);
     }
 
     onBeginPressed(){
-        console.log('on begin pressed')
-        console.log('x: ' + this.state.X);
-        console.log('y: ' + this.state.Y);
-        console.log('Z: ' + this.state.Z);
-        console.log('eye: ' + this.state.eye);
         this.props.navigator.push({
-            title: 'Sphere',
+            title: 'Establish sphere power',
             component: SphIns,
-            passPros: {
+            passProps: {
                 X: this.state.X,
                 Y: this.state.Y,
                 Z: this.state.Z,
                 eye: this.state.eye,
             },
         });
-        console.log('x2: ' + this.state.X);
-        console.log('y2: ' + this.state.Y);
-        console.log('Z2: ' + this.state.Z);
-        console.log('eye2: ' + this.state.eye);
     }
 
     render(){
@@ -128,6 +113,7 @@ class EnterXYZ extends Component {
                         placeholder='Sph'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onYChanged.bind(this)}
+                        keyboardType='number-pad'
                         placeholder='Cyl'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onZChanged.bind(this)}

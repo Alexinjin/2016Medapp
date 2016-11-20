@@ -15,13 +15,12 @@ var styles = StyleSheet.create({
         padding: 15,
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
     },
     description: {
         fontSize: 15,
         textAlign: 'center',
-        marginBottom: 30,
-        flex: 4,
+        flex: 1,
     },
 });
 
@@ -34,16 +33,18 @@ class SphIns extends Component{
             Z: this.props.Z,
             eye: this.props.eye,
         };
+        this.setState({
+            X: this.state.X + 0.75,
+        });
     }
 
     render(){
         return(
             <View style={styles.container}>
                 <Text style={styles.description}>
-                X: {this.state.X}
-                Y: {this.state.Y}
-                Z: {this.state.Z}
-                eye: {this.state.eye}
+                Sphere will establish both parts of the two axes as close as possible to the plane of the retina
+                Occlude one eye
+                "Fog" the patient by placing {this.state.X}
                 </Text>
             </View>
         );
