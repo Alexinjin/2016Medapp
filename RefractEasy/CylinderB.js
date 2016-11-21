@@ -14,68 +14,43 @@ var CylinderB_noPref = require('./CylinderB_noPref');
 var Display90or180 = require('./Display90or180');
 var styles = StyleSheet.create({
     container: {
-        marginTop: 120,
-        padding: 30,
-        alignItems: 'center',
+        padding: 15,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
+    },
+    title: {
+      fontSize: 30,
+      flex: 1,
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
     description: {
-        marginBottom: 50,
-        fontSize: 30,
-        textAlign: 'center',
+        fontSize: 20,
+        // textAlign: 'center',
         color: '#2077E8',
-    },
-    image: {
-        width: 320,
-        height: 154,
-    },
-    flowRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
-        textAlign: 'left',
-        color: 'white',
-        backgroundColor: 'paleturquoise',
-        fontWeight: 'bold',
         flex: 1,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
-        textShadowColor: 'lightseagreen',
+    },
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        // borderWidth: 2,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    buttonText: {
+        fontSize: 25,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    button: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-        borderWidth: 3,
-        borderRadius: 10,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        marginTop: 30
-},
-
 });
 
 class CylinderB extends Component {
@@ -87,6 +62,7 @@ class CylinderB extends Component {
           Z: this.props.Z,
         };
     }
+
     on90Pressed(){
       this.props.navigator.push({
           title: 'Cylinder',
@@ -122,46 +98,40 @@ class CylinderB extends Component {
           },
       });
     }
+
     render(){
         return (
             <View style={styles.container}>
-              <Text style={styles.description}>Cylinder {"\n"} Y {"<="} 1</Text>
-
-              <Text style={styles.dataText}>
-              Cyl=0.50 Axis at 180{"\n"}
-              Orient JCC so that red is at 90 and white at 180 degrees.{"\n"}
-              Flip JCC and ask the patient, which is better.{"\n"}
-              </Text>
-
-
-
-
-
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText} onPress = {this.on90Pressed.bind(this)}>White at 90</Text>
-                </TouchableHighlight>
+              <View style={{flex: 1,}}>
               </View>
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText} onPress = {this.on180Pressed.bind(this)}>White at 180</Text>
-                </TouchableHighlight>
+              <Text style={styles.title}>Cylinder {"<="} 1</Text>
+              <Text style={styles.description}>1. Cyl=0.50 Axis at 180</Text>
+              <Text style={styles.description}>2. Orient JCC so that red is at 90 and white at 180 degrees.</Text>
+              <Text style={styles.description}>3. Flip JCC and ask the patient, which is better.</Text>
+              <TouchableHighlight
+                style = {styles.button}
+                onPress = {this.on90Pressed.bind(this)}
+                uderlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText} >White at 90</Text>
+              </TouchableHighlight>
+              <View style={{flex: 0.1,}}>
               </View>
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText} onPress = {this.onNoPrefPressed.bind(this)}>No Preference</Text>
-                </TouchableHighlight>
+              <TouchableHighlight
+                style = {styles.button}
+                onPress = {this.on180Pressed.bind(this)}
+                uderlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText}>White at 180</Text>
+              </TouchableHighlight>
+              <View style={{flex: 0.1,}}>
               </View>
-
-
-
-
+              <TouchableHighlight
+                style = {styles.button}
+                onPress = {this.onNoPrefPressed.bind(this)}
+                uderlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText}>No Preference</Text>
+              </TouchableHighlight>
+              <View style={{flex: 0.3,}}>
+              </View>
             </View>
         );
     }
