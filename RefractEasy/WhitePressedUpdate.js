@@ -41,7 +41,7 @@ var styles = StyleSheet.create({
 })
 
 
-class Screen_6c extends Component {
+class WhitePressedUpdate extends Component {
   render(){
     return(
       <View style = {styles.container}>
@@ -62,4 +62,4 @@ class Screen_6c extends Component {
   }
 }
 
-module.exports = Screen_6c;
+module.exports = WhitePressedUpdate;

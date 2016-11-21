@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
-var LastScreen = require('./LastScreen');
+var LastScreen = require('./GetLastX');
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -56,7 +56,7 @@ var styles = StyleSheet.create({
   },
 })
 
-class Screen_6e2 extends Component{
+class UpdateY extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -74,7 +74,6 @@ class Screen_6e2 extends Component{
         X: this.state.X,
         Y: this.state.Y,
         Z: this.state.Z,
-        eye: this.state.eye,
       },
     });
   }
@@ -100,4 +99,4 @@ class Screen_6e2 extends Component{
   }
 }
 
-module.exports = Screen_6e2;
+module.exports = UpdateY;

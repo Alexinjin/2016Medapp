@@ -41,7 +41,15 @@ var styles = StyleSheet.create({
 })
 
 
-class Screen_5d extends Component {
+class UpdateCYLandPlaceAxis extends Component {
+  constructor(props){
+    super(props);
+    this.state{
+      X: this.props.X;
+      Y: this.props.Z;
+
+    }
+  }
   render(){
     return(
       <View style = {styles.container}>
@@ -63,4 +71,4 @@ class Screen_5d extends Component {
   }
 }
 
-module.exports = Screen_5d;
+module.exports = UpdateCYLandPlaceAxis;
