@@ -9,19 +9,21 @@ var Start = require('./Start')
 
 var styles = StyleSheet.create({
   container: {
-      marginTop: 100,
-      padding: 30,
-      alignItems: 'center',
+      padding: 15,
+      flexDirection:'column',
+      flex:1,
   },
   description: {
-      marginBottom: 50,
-      fontSize: 30,
-      textAlign: 'center',
+      fontSize: 20,
       color: '#2077E8',
+      flex: 1,
+  },
+  titleText : {
+    fontSize : 27,
+    flex : 1,
   },
   flowRight: {
-      padding:1,
-      marginTop:30,
+      flex:1.5,
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'stretch',
@@ -38,28 +40,20 @@ var styles = StyleSheet.create({
       alignSelf: 'stretch',
   },
   buttonText: {
-    fontSize: 15,
-    color: 'black',
-    textAlign: 'right',
+      fontSize: 25,
+      color: 'white',
+      alignSelf: 'center'
   },
-  searchInput: {
-    flex: 4,
-    paddingLeft:4,
-    fontSize: 15,
-    borderWidth: 1,
-    borderColor: '#48BBEC',
-    borderRadius: 10,
-    color: '#48BBEC'
-  },
+
   button: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 3,
-    borderRadius: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
   },
 })
 
@@ -87,20 +81,20 @@ class DisplayResult extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <Text style = {styles.description}>Final Prescription</Text>
-        <View style = {styles.flowRight}>
-          <Text style = {styles.dataText}>Sph = {this.state.X}</Text>
-          <Text style = {styles.dataText}>Cyl = {this.state.Y}</Text>
-          <Text style = {styles.dataText}>Axis = {this.state.Z}</Text>
-        </View>
-        <View style = {styles.flowRight}>
-          <TouchableHighlight
-            style = {styles.button}
-            onPress={this.PressNext.bind(this)}
-            uderlayColor = 'blue'>
-            <Text style = {styles.buttonText}>Finished</Text>
-          </TouchableHighlight>
-        </View>
+        <View style = {{flex:1.5,}}></View>
+        <Text style = {styles.titleText}>Final Prescription</Text>
+        <View style = {{flex:0.5,}}></View>
+        <Text style = {styles.description}>Sph  = {this.state.X}</Text>
+        <Text style = {styles.description}>Cyl   = {this.state.Y}</Text>
+        <Text style = {styles.description}>Axis = {this.state.Z}</Text>
+        <View style = {{flex:3,}}></View>
+        <TouchableHighlight
+          style = {styles.button}
+          onPress={this.PressNext.bind(this)}
+          underlayColor='#99d9f4'>
+          <Text style = {styles.buttonText}>Finished</Text>
+        </TouchableHighlight>
+        <View style = {{flex:1,}}></View>
       </View>
     );
   }
