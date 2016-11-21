@@ -12,6 +12,15 @@ var styles = ReactNative.StyleSheet.create({
 });
 
 class RefractEasyApp extends React.Component {
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         X: 0,
+    //         Y: 0,
+    //         Z: 0,
+    //     };
+    // }
+
     render() {
         return (
             <ReactNative.NavigatorIOS
@@ -19,6 +28,11 @@ class RefractEasyApp extends React.Component {
             initialRoute={{
                 title: 'Refract Easy',
                 component: Start,
+                passProps: {
+                    X: 0,
+                    Y: 0,
+                    Z: 0,
+                },
             }}/>
         );
     }
