@@ -63,12 +63,12 @@ class Start extends Component {
             Y: this.props.Y,
             Z: this.props.Z,
         };
-        console.log('x: ' + this.state.X + ', y: ' + this.state.Y + ', z: ' + this.state.Z);
+        console.log('Start: x: ' + this.state.X + ', y: ' + this.state.Y + ', z: ' + this.state.Z);
     }
 
     onStartPressed(){
         this.props.navigator.push({
-            title: 'Input Initial Values',
+            title: 'Input XYZ',
             component: EnterXYZ,
             passProps: {
                 X: this.state.X,

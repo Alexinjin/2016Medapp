@@ -66,8 +66,8 @@ class EnterXYZ extends Component {
             X: this.props.X,
             Y: this.props.Y,
             Z: this.props.Z,
-            eye: this.props.eye,
         };
+        console.log('EnterXYZ: x: ' + this.state.X + ', y: ' + this.state.Y + ', z: ' + this.state.Z);
     }
 
     onXChanged(event){
@@ -84,13 +84,12 @@ class EnterXYZ extends Component {
 
     onBeginPressed(){
         this.props.navigator.push({
-            title: 'Establish sphere power',
+            title: 'Sphere',
             component: SphIns,
             passProps: {
                 X: this.state.X,
                 Y: this.state.Y,
                 Z: this.state.Z,
-                eye: this.state.eye,
             },
         });
     }
