@@ -2,7 +2,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight, NavigatorIOS} from 'react-native';
 
-var WhiteChoice = require('./WhiteChoice');
+var WhiteLastUpdateY = require('./WhiteLastUpdateY');
+
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -45,15 +46,19 @@ export default class WhitePressedUpdate extends Component {
   constructor(props){
     super(props);
     this.state = {
-          X: this.props.X-0.25,
-          Y: this.props.Y+0.5,
+          X: this.props.X,
+          Y: this.props.Y,
           Z: this.props.Z,
         };
   }
-  PressNext(){
+  onWhitePressed(){
+    this.setState({X:this.state.X - 0.25,Y:this.state.Y+0.5});
+    }
+
+  onRedPressed(){
     this.props.navigator.push({
       title: "Eye Completed",
-      component: WhiteChoice,
+      component: WhiteLastUpdateY ,
       passProps: {
           X: this.state.X,
           Y: this.state.Y,
@@ -63,23 +68,37 @@ export default class WhitePressedUpdate extends Component {
   }
   render(){
     return(
-      <View style = {styles.container}>
-        <View>
-          <Text style = {styles.description}>1. Add 0.5 from CYL</Text>
-        <Text style = {styles.description}>2. CYL now = {this.state.Y+0.5} </Text>
-        <Text style = {styles.description}>3. Maintain spherical equivalent.Subtract 0.25 to Sphere </Text>
-        <Text style = {styles.description}>4. New Sphere is {this.state.X-0.25}</Text>
-        </View>
-        <View style = {styles.flowRight}>
-          <TouchableHighlight style = {styles.button}
-            onPress={this.PressNext.bind(this)}
-            uderlayColor = 'blue'>
-          <Text style = {styles.dataText}>Next</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    );
-  }
-}
+       <View style={styles.container}>
 
+            <Text style={styles.description}>Cylinder Refinement Power </Text>
+            <Text style={styles.dataText}>
+            Add 0.50 from CYL so:{"\n"}
+            New Cylinder is {this.state.Y + 0.5}{"\n"}
+            Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere:{"\n"}
+            New Sphere is {this.state.X - 0.25}{"\n"}
+            {"\n"}
+            Repeat JCC Flip with new values and ask patient which is better.{"\n"}
+            </Text>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                style = {styles.button}
+                onPress = {this.onRedPressed.bind(this)}
+                underlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText}>Red</Text>
+              </TouchableHighlight>
+            </View>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                onPress = {this.onWhitePressed.bind(this)}
+                style = {styles.button}
+                underlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText} >White</Text>
+              </TouchableHighlight>
+            </View>
+
+
+        </View>
+        );
+    }
+}
 module.exports = WhitePressedUpdate;
