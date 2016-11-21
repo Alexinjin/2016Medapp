@@ -21,12 +21,17 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
+  descriptionBox: {
+    backgroundColor: 'orangered',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 5,
+  },
   description: {
-      fontSize: 20,
-      // textAlign: 'center',
-      color: '#2077E8',
+      fontSize: 30,
       textAlign: 'center',
-      flex: 5,
+      color: 'white',
+      // flex: 5,
   },
   flowRight: {
       flexDirection: 'row',
@@ -86,11 +91,15 @@ class DisplayResult extends Component{
       <View style = {styles.container}>
         <View style = {{flex:1.5,}}></View>
         <Text style = {styles.title}>Final Prescription</Text>
-        <View style = {{flex:0.5,}}></View>
-        <Text style = {styles.description}>
-        Sph  = {this.state.X}{'\n\n'}
-        Cyl   = {this.state.Y}{'\n\n'}
-        Axis = {this.state.Z}</Text>
+        <View style = {{flex:0.3,}}></View>
+        <View style={styles.descriptionBox}>
+          <Text style = {styles.description}>
+          Sph  = {this.state.X}{'\n\n'}
+          Cyl   = {this.state.Y}{'\n\n'}
+          Axis = {this.state.Z}</Text>
+        </View>
+        <View style={{flex: 1,}}>
+        </View>
         <TouchableHighlight
           style = {styles.button}
           onPress={this.PressNext.bind(this)}
