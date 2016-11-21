@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 var UpdateCYLandPlaceAxis = require('./UpdateCYLandPlaceAxis');
+var DisplayResult = require('./DisplayResult');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -114,7 +115,7 @@ class CylinderB_noPref extends Component {
         onNoPrefPressed(){
           this.props.navigator.push({
               title: 'Cylinder',
-              component: CylinderB_noPref,
+              component: DisplayResult,
               passProps: {
                   X: this.state.X,
                   Y: this.state.Y,
@@ -131,10 +132,6 @@ class CylinderB_noPref extends Component {
             Place Axis at 90{"\n"}
             Orient JCC  at 45 and 135 degrees.{"\n"}
             </Text>
-
-
-
-
 
             <View style = {styles.flowRight}>
               <TouchableHighlight
