@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 var RedPressedUpdate = require('./RedPressedUpdate');
-var RedUpdateY = require('./RedUpdateY');
+var RedLastUpdateY = require('./RedLastUpdateY');
 
 var styles = StyleSheet.create({
     container: {
@@ -104,7 +104,7 @@ class RedChoice extends Component {
     onWhitePressed(){
       this.props.navigator.push({
           title: 'Cylinder',
-          component: RedUpdateY,
+          component: RedLastUpdateY,
           passProps: {
               X: this.state.X,
               Y: this.state.Y,

@@ -10,7 +10,7 @@ import {
     TextInput
 } from 'react-native';
 
-//var EnterXYZ = require('./EnterXYZ');
+var UpdateCYLandPlaceAxis = require('./UpdateCYLandPlaceAxis');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -81,50 +81,84 @@ class CylinderB_noPref extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 10,
-            leftY: 0,
-            leftZ: 0,
-            rightX: 0,
-            rightY: 0,
-            rightZ: 0,
+            X: 0,
+            Y: 0,
+            Z: 0,
         };
     }
 
     render(){
-        return (
-            <View style={styles.container}>
-              <Text style={styles.description}>Cylinder {"\n"} Y {"<="} 1</Text>
 
-              <Text style={styles.dataText}>
-              Place Axis at 90{"\n"}
-               Orient JCC  at 45 and 135 degrees.{"\n"}
-              </Text>
+    on45Pressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: UpdateCYLandPlaceAxis,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: 45,
+          },
+      });
+    }
+
+    on135Pressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: UpdateCYLandPlaceAxis,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: 135,
+          },
+      });
+    }
+
+    onNoPrefPressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: CylinderB_noPref,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+    }
+
+      return (
+          <View style={styles.container}>
+            <Text style={styles.description}>Cylinder {"\n"} Y {"<="} 1</Text>
+
+            <Text style={styles.dataText}>
+            Place Axis at 90{"\n"}
+            Orient JCC  at 45 and 135 degrees.{"\n"}
+            </Text>
 
 
 
 
 
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>White at 45</Text>
-                </TouchableHighlight>
-              </View>
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>White at 135</Text>
-                </TouchableHighlight>
-              </View>
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>No Preference</Text>
-                </TouchableHighlight>
-              </View>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                style = {styles.button}
+                uderlayColor = 'blue'>
+                <Text style = {styles.buttonText} onPress = {this.on45Pressed.bind(this)}>White at 45</Text>
+              </TouchableHighlight>
+            </View>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                style = {styles.button}
+                uderlayColor = 'blue'>
+                <Text style = {styles.buttonText} onPress = {this.on135Pressed.bind(this)}>White at 135</Text>
+              </TouchableHighlight>
+            </View>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                style = {styles.button}
+                uderlayColor = 'blue'>
+                <Text style = {styles.buttonText} onPress = {this.onNoPrefPressed.bind(this)}>No Prefernce</Text>
+              </TouchableHighlight>
+            </View>
 
 
 

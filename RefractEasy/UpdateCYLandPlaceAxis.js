@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight, NavigatorIOS} from 'react-native';
 
-
+var CylinderA = require('./CylinderA')
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -45,11 +45,25 @@ class UpdateCYLandPlaceAxis extends Component {
   constructor(props){
     super(props);
     this.state{
-      X: this.props.X;
-      Y: this.props.Z;
-
+      X: this.props.X-0.25;
+      Y: this.props.Y+0.5;
+      Z: this.props.Z;
     }
   }
+
+
+  onNextPressed(){
+    this.props.navigator.push({
+        title: 'Cylinder',
+        component: CylinderA,
+        passProps: {
+            X: this.state.X,
+            Y: this.state.Y,
+            Z: this.state.Z,
+        },
+    });
+  }
+
   render(){
     return(
       <View style = {styles.container}>
@@ -63,7 +77,7 @@ class UpdateCYLandPlaceAxis extends Component {
           <TouchableHighlight
             style = {styles.button}
             uderlayColor = 'blue'>
-            <Text style = {styles.dataText}>Next</Text>
+            <Text style = {styles.buttonText} onPress = {this.onNextPressed.bind(this)}>Next</Text>
           </TouchableHighlight>
         </View>
       </View>
