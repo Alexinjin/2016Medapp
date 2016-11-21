@@ -78,10 +78,11 @@ class CylinderAxis extends Component{
   constructor(props){
       super(props);
       this.state = {
-          X: 10,
-          Y: 0.5,
-          Z: 0
+          X: this.props.X,
+          Y: this.props.Y,
+          Z: this.props.Z,
       };
+      console.log('CylinerAxis: x: ' + this.state.X);
   }
 
   onNextPressedToA(){
