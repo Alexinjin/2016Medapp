@@ -64,8 +64,8 @@ class RedLastUpdateY extends Component{
     return(
       <View style = {styles.container}>
         <View>
-          <Text style = {styles.description}>Add 0.25 to CYL</Text>
-          <Text style = {styles.description}> CYL now = {this.state.Y+0.25} </Text>
+          <Text style = {styles.description}>Add 0.25 to Cylinder</Text>
+          <Text style = {styles.description}> Cylinder now is {this.state.Y+0.25} </Text>
           <Text style = {styles.dataText}>You're done with Cylinder refinement</Text>
           </View>
         <View style = {styles.flowRight}>

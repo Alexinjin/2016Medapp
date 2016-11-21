@@ -96,7 +96,7 @@ class WhiteLastUpdateY extends Component{
         <Text style = {styles.title}>Final Cylinder Value</Text>
 
         <Text style = {styles.description}>
-        1. Subtract 0.25 from CYL{'\n\n'}
+        1. Subtract 0.25 from Cylinder{'\n\n'}
         2. CYL now = {this.state.Y-0.25} {'\n\n'}
         3. You are done with Cylinder Refinement</Text>
         <View style={{flex: 0.5,}}>

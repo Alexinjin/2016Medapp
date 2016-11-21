@@ -109,7 +109,7 @@ class RedPressedUpdate extends Component {
 
             <Text style={styles.description}>Cylinder Refinement Power </Text>
             <Text style={styles.dataText}>
-            Subtract 0.50 from CYL so:{"\n"}
+            Subtract 0.50 from Cylinder so:{"\n"}
             New Cylinder is {this.state.Y - 0.5}{"\n"}
             Maintain spherical equivalent. {"\n"} Add 0.25 to Sphere:{"\n"}
             New Sphere is {this.state.X + 0.25}{"\n"}

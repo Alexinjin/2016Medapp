@@ -74,6 +74,7 @@ class GetLastX extends Component{
         X: this.props.X,
         Y: this.props.Y,
         Z: this.props.Z,
+        newX:0,
     };
   }
 
@@ -83,14 +84,14 @@ class GetLastX extends Component{
       component: DisplayResult,
       //make a if statement (if left, passPros:{leftX ....})
       passProps: {
-          X: this.state.X,
+          X: this.state.newX,
           Y: this.state.Y,
           Z: this.state.Z,
       },
     });
   }
   onXChanged(event){
-      this.setState({ X: parseFloat(event.nativeEvent.text) });
+      this.setState({ newX: parseFloat(event.nativeEvent.text) });
   }
   render(){
     return(
