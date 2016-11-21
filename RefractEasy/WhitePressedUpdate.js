@@ -84,8 +84,8 @@ export default class WhitePressedUpdate extends Component {
       title: "Eye Completed",
       component: WhiteLastUpdateY ,
       passProps: {
-          X: this.state.X,
-          Y: this.state.Y,
+          X: this.state.X - 0.25,
+          Y: this.state.Y + 0.5,
           Z: this.state.Z,
       },
     });
@@ -96,10 +96,11 @@ export default class WhitePressedUpdate extends Component {
             <View style = {{flex:1.5,}}></View>
             <Text style={styles.title}>Cylinder Refinement Power </Text>
             <Text style={styles.description}>
-            1. Add 0.50 from CYL, so New Cylinder is <Text style = {{color : 'red'}}>{this.state.Y + 0.5}</Text>{"\n\n"}
-            2. Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere{"\n\n"}
-            3. New Sphere is <Text style = {{color : 'red'}}>{this.state.X - 0.25}</Text>{"\n\n"}
-            4. Repeat JCC Flip with new values and ask patient which is better.{"\n\n"}
+            1. Add 0.50 to Cylinder so:{"\n\n"}
+            2. New Cylinder is {this.state.Y + 0.5}{"\n\n"}
+            3. Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere:{"\n\n"}
+            4. New Sphere is {this.state.X - 0.25}{"\n\n"}
+            5. Repeat JCC Flip with new values and ask patient which is better.{"\n\n"}
             </Text>
             <TouchableHighlight
               style = {styles.button}

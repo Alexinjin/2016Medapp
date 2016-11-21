@@ -14,68 +14,43 @@ var UpdateCYLandPlaceAxis = require('./UpdateCYLandPlaceAxis');
 var DisplayResult = require('./DisplayResult');
 var styles = StyleSheet.create({
     container: {
-        marginTop: 120,
-        padding: 30,
-        alignItems: 'center',
+        padding: 15,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
+    },
+    title: {
+      fontSize: 30,
+      flex: 2,
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
     description: {
-        marginBottom: 50,
-        fontSize: 30,
+        fontSize: 20,
         textAlign: 'center',
         color: '#2077E8',
+        flex: 5,
     },
-    image: {
-        width: 320,
-        height: 154,
-    },
-    flowRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        // borderWidth: 2,
         alignSelf: 'stretch',
-    },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
-        textAlign: 'left',
-        color: 'white',
-        backgroundColor: 'paleturquoise',
-        fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center',
         flex: 1,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
-        textShadowColor: 'lightseagreen',
+    },
+    buttonText: {
+        fontSize: 25,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    button: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-        borderWidth: 3,
-        borderRadius: 10,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        marginTop: 30
-},
-
 });
 
 class CylinderB_noPref extends Component {
@@ -126,37 +101,42 @@ class CylinderB_noPref extends Component {
     render(){
       return (
           <View style={styles.container}>
-            <Text style={styles.description}>Cylinder {"\n"} Y {"<="} 1</Text>
 
-            <Text style={styles.dataText}>
-            Place Axis at 90{"\n"}
-            Orient JCC  at 45 and 135 degrees.{"\n"}
+            <View style={{flex: 3,}}>
+            </View>
+
+            <Text style={styles.description}>
+            Place Axis at 90{"\n"}{"\n"}
+            Orient JCC  at 45 and 135 degrees.
             </Text>
 
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                style = {styles.button}
-                uderlayColor = 'blue'>
-                <Text style = {styles.buttonText} onPress = {this.on45Pressed.bind(this)}>White at 45</Text>
-              </TouchableHighlight>
-            </View>
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                style = {styles.button}
-                uderlayColor = 'blue'>
-                <Text style = {styles.buttonText} onPress = {this.on135Pressed.bind(this)}>White at 135</Text>
-              </TouchableHighlight>
-            </View>
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                style = {styles.button}
-                uderlayColor = 'blue'>
-                <Text style = {styles.buttonText} onPress = {this.onNoPrefPressed.bind(this)}>No Prefernce</Text>
-              </TouchableHighlight>
+            <TouchableHighlight
+              style = {styles.button}
+              onPress = {this.on45Pressed.bind(this)}
+              underlayColor = '#7AD8FF'>
+              <Text style = {styles.buttonText}>White at 45</Text>
+            </TouchableHighlight>
+            <View style={{flex: 0.3}}>
             </View>
 
+            <TouchableHighlight
+              style = {styles.button}
+              onPress = {this.on135Pressed.bind(this)}
+              underlayColor = '#7AD8FF'>
+              <Text style = {styles.buttonText} >White at 135</Text>
+            </TouchableHighlight>
+            <View style={{flex: 0.3}}>
+            </View>
 
+            <TouchableHighlight
+              style = {styles.button}
+              onPress = {this.onNoPrefPressed.bind(this)}
+              underlayColor = '#7AD8FF'>
+              <Text style = {styles.buttonText} >No Prefernce</Text>
+            </TouchableHighlight>
 
+            <View style={{flex: 1}}>
+            </View>
 
             </View>
         );

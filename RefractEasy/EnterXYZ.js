@@ -110,11 +110,11 @@ class EnterXYZ extends Component {
                     <TextInput style={styles.inputBox}
                         onChange={this.onXChanged.bind(this)}
                         keyboardType='numeric'
-                        placeholder='Sph'/>
+                        placeholder='Sphere'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onYChanged.bind(this)}
                         keyboardType='numeric'
-                        placeholder='Cyl'/>
+                        placeholder='Cylinder'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onZChanged.bind(this)}
                         keyboardType='numeric'
