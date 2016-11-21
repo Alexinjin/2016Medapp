@@ -63,7 +63,6 @@ class UpdateY extends Component{
       X: this.props.X,
       Y: this.props.Y,
       Z: this.props.Z,
-      eye: this.props.eye,
     };
   }
   PressNextRight(){

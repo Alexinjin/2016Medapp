@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight, NavigatorIOS} from 'react-native';
 
-
+var Choose = require('./Choose_Red_White');
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -42,6 +42,26 @@ var styles = StyleSheet.create({
 
 
 class WhitePressedUpdate extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        X: 10,
+        Y: 190,
+        Z: 0,
+
+    };
+  }
+  PressNext(){
+    this.props.navigator.push({
+      title: "Eye Completed",
+      component: Choose,
+      passProps: {
+          X: this.state.X,
+          Y: this.state.Y,
+          Z: this.state.Z,
+      },
+    });
+  }
   render(){
     return(
       <View style = {styles.container}>
@@ -51,10 +71,10 @@ class WhitePressedUpdate extends Component {
           <Text style = {styles.dataText}>2. Subtract 0.25 to Sph</Text>
         </View>
         <View style = {styles.flowRight}>
-          <TouchableHighlight
-            style = {styles.button}
+          <TouchableHighlight style = {styles.button}
+            onPress={this.PressNext.bind(this)}
             uderlayColor = 'blue'>
-            <Text style = {styles.dataText}>Next</Text>
+          <Text style = {styles.dataText}>Next</Text>
           </TouchableHighlight>
         </View>
       </View>

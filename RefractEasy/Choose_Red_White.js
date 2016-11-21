@@ -9,7 +9,8 @@ import{
 	ActivityIndicator,
 	Image
 } from 'react-native';
-
+var UpdateY = require('./UpdateY');
+var WhitePressedUpdate = require('./WhitePressedUpdate');
 var styles = StyleSheet.create({
 	description:{
 		marginBottom: 20,
@@ -60,6 +61,37 @@ var styles = StyleSheet.create({
 });
 
 class Choose_Red_White extends Component{
+	constructor(props){
+    super(props);
+    this.state = {
+        X: 10,
+        Y: 190,
+        Z: 0,
+
+    };
+  }
+	PressRed(){
+    this.props.navigator.push({
+      title: "Eye Completed",
+      component: UpdateY,
+      passProps: {
+          X: this.state.X,
+          Y: this.state.Y,
+          Z: this.state.Z,
+      },
+    });
+  }
+  PressWhite(){
+    this.props.navigator.push({
+      title: "Eye Completed",
+      component: WhitePressedUpdate,
+      passProps: {
+          X: this.state.rightX,
+          Y: this.state.rightY,
+          Z: this.state.rightZ,
+      },
+    });
+  }
 	render(){
 		return(
 			<View style={styles.container}>
@@ -67,13 +99,15 @@ class Choose_Red_White extends Component{
 			Repeat JCC Flip with new values and ask patient which is better!</Text>
 			<View style={styles.flowRight}>
 			<TouchableHighlight style={styles.button}
-			      underlayColor='#99d9f4'>
+				  onPress={this.PressRed.bind(this)}
+			      underlayColor='blue'>
 			    <Text style={styles.buttonText}>Red</Text>
 			</TouchableHighlight>
 			</View>
 			<View style={styles.flowRight}>
 			<TouchableHighlight style={styles.button}
-			      underlayColor='#99d9f4'>
+				onPress={this.PressWhite.bind(this)}
+			    underlayColor='blue'>
 			    <Text style={styles.buttonText}>White</Text>
 			</TouchableHighlight>
 			</View>
