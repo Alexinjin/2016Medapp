@@ -5,38 +5,61 @@ import {StyleSheet, View, Text, TextInput, TouchableHighlight, NavigatorIOS} fro
 var CylinderA = require('./CylinderA')
 var styles = StyleSheet.create({
   container: {
-      marginTop: 100,
-      padding: 30,
-      alignItems: 'center',
+      padding: 15,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    flex: 2.8,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   description: {
-      marginBottom: 50,
-      fontSize: 30,
+      fontSize: 20,
       textAlign: 'center',
       color: '#2077E8',
+      flex: 5.5,
   },
   flowRight: {
-      paddingLeft: 10,
-      paddingRight: 10,
-      marginTop: 50,
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'stretch',
   },
-  dataText: {
-      padding: 5,
-      fontSize: 15,
-      textAlign: 'left',
+
+  flowDown: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    textShadowColor: 'lightslategray',
+    textShadowOffset: {width: 3, height: 3,},
+    textShadowRadius: 10,
+  },
+  searchInput: {
+    flex: 2,
+    paddingLeft:4,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: '#48BBEC',
+    borderRadius: 10,
+    color: '#48BBEC'
   },
   button: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 3,
-    borderRadius: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      // borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
   },
 })
 
@@ -66,18 +89,18 @@ class UpdateCYLandPlaceAxis extends Component {
   render(){
     return(
       <View style = {styles.container}>
-        <View>
-          <Text style = {styles.description}>White at {this.state.Z}</Text>
-          <Text style = {styles.dataText}>Add 0.50 to CYL and place Axis at {this.state.Z}</Text>
-          <Text style = {styles.dataText}>Minus sphere by 0.25 to maintain the spherical equivalent</Text>
-        </View>
-        <View style = {styles.flowRight}>
-          <TouchableHighlight
-            style = {styles.button}
-            uderlayColor = 'blue'>
-            <Text style = {styles.buttonText} onPress = {this.onNextPressed.bind(this)}>Next</Text>
-          </TouchableHighlight>
-        </View>
+        <View style = {{flex:1.5,}}></View>
+        <Text style = {styles.description}>
+        White at {this.state.Z}{"\n\n"}
+        Add 0.50 to CYL and place Axis at {this.state.Z}{"\n\n"}
+        Minus sphere by 0.25 to maintain the spherical equivalent</Text>
+        <TouchableHighlight
+          style = {styles.button}
+          onPress = {this.onNextPressed.bind(this)}
+          underlayColor = '#7AD8FF'>
+          <Text style = {styles.buttonText}>Next</Text>
+        </TouchableHighlight>
+        <View style = {{flex:0.5,}}></View>
       </View>
     );
   }

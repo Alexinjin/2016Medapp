@@ -96,10 +96,10 @@ export default class WhitePressedUpdate extends Component {
             <View style = {{flex:1.5,}}></View>
             <Text style={styles.title}>Cylinder Refinement Power </Text>
             <Text style={styles.description}>
-            1. Add 0.50 to Cylinder so:{"\n\n"}
-            2. New Cylinder is {this.state.Y + 0.5}{"\n\n"}
+            1. Add 0.50 to Cylinder so{"\n\n"}
+            2. New Cylinder is <Text style = {{color : 'red'}}>{this.state.Y + 0.5}</Text>{"\n\n"}
             3. Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere:{"\n\n"}
-            4. New Sphere is {this.state.X - 0.25}{"\n\n"}
+            4. New Sphere is <Text style = {{color : 'red'}}>{this.state.X - 0.25}</Text>{"\n\n"}
             5. Repeat JCC Flip with new values and ask patient which is better.{"\n\n"}
             </Text>
             <TouchableHighlight
@@ -116,7 +116,7 @@ export default class WhitePressedUpdate extends Component {
               <Text style = {styles.buttonText} >White</Text>
             </TouchableHighlight>
 
-            <View style = {{flex:1,}}></View>
+            <View style = {{flex:0.5,}}></View>
         </View>
         );
     }
