@@ -9,19 +9,22 @@ var DisplayResult = require('./DisplayResult')
 var styles = StyleSheet.create({
   container: {
       padding: 15,
-      flexDirection:'column',
-      flex:1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      // alignItems: 'center',
+      flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    flex: 1,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   description: {
       fontSize: 20,
+      // textAlign: 'center',
       color: '#2077E8',
-      flex: 1.5,
-  },
-  titleText : {
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    flex : 2,
+      flex: 5,
   },
   flowRight: {
       flexDirection: 'row',
@@ -35,9 +38,13 @@ var styles = StyleSheet.create({
       alignSelf: 'stretch',
   },
   buttonText: {
-      fontSize: 25,
-      color: 'white',
-      alignSelf: 'center'
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    textShadowColor: 'lightslategray',
+    textShadowOffset: {width: 3, height: 3,},
+    textShadowRadius: 10,
   },
   searchInput: {
     flex: 2,
@@ -52,7 +59,7 @@ var styles = StyleSheet.create({
       backgroundColor: '#48BBEC',
       borderColor: '#48BBEC',
       borderRadius: 8,
-      borderWidth: 2,
+      // borderWidth: 2,
       alignSelf: 'stretch',
       justifyContent: 'center',
       alignItems: 'center',
@@ -88,14 +95,14 @@ class GetLastX extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <View style = {{flex:2,}}>
+        <View style = {{flex:1,}}>
         </View>
-        <Text style = {styles.titleText}>Confirmation</Text>
+        <Text style = {styles.title}>Confirmation</Text>
         <View style = {styles.flowRight}>
           <TextInput
           style = {styles.searchInput}
           onChange={this.onXChanged.bind(this)}
-          keyboardType='number-pad'
+          keyboardType='numeric'
           placeholder = ' Patient Stops At: '/>
           <TouchableHighlight
             style = {styles.button}
@@ -104,14 +111,16 @@ class GetLastX extends Component{
             <Text style = {styles.buttonText}>Confirm</Text>
           </TouchableHighlight>
         </View>
+        <View style={{flex: 0.4,}}></View>
+        <Text style = {styles.description}>
+        1. Sphere Power Refinement should be close{'\n\n'}
+        2. Currently, Sphere Power = {this.state.X}{'\n\n'}
+        3. Fogged again by adding 0.75{'\n\n'}
+        4. Subtract 0.25 from the patients{'\n\n'}
+        5. Ask if the vision is better{'\n\n'}
+        6. Stop if no more appreciably improvement{'\n\n'}
+        7. Put the result into the input box </Text>
         <View style={{flex: 1,}}></View>
-        <Text style = {styles.description}>1. Sphere Power Refinement should be close</Text>
-        <Text style = {styles.description}>2. Currently, Sphere Power = {this.state.X}</Text>
-        <Text style = {styles.description}>3. Fogged again by adding 0.75</Text>
-        <Text style = {styles.description}>4. Subtract 0.25 from the patients</Text>
-        <Text style = {styles.description}>5. Ask if the vision is better</Text>
-        <Text style = {styles.description}>6. Stop if no more appreciably improvement</Text>
-        <Text style = {styles.description}>7. Put the result into the input box </Text>
       </View>
     );
   }

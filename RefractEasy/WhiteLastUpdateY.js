@@ -6,22 +6,22 @@ var LastScreen = require('./GetLastX');
 var styles = StyleSheet.create({
   container: {
       padding: 15,
-      width : null,
-      height : null,
-      flexDirection:'column',
-      flex:1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      // alignItems: 'center',
+      flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    flex: 1,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   description: {
       fontSize: 20,
+      // textAlign: 'center',
       color: '#2077E8',
-      flex: 1,
-  },
-
-  titleText : {
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    flex : 2,
+      flex: 1.5,
   },
 
   flowRight: {
@@ -36,10 +36,24 @@ var styles = StyleSheet.create({
       alignItems: 'center',
       alignSelf: 'stretch',
   },
+  button: {
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      // borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 0.75,
+  },
   buttonText: {
       fontSize: 25,
+      textAlign: 'center',
       color: 'white',
-      alignSelf: 'center'
+      fontWeight: 'bold',
+      textShadowColor: 'lightslategray',
+      textShadowOffset: {width: 3, height: 3,},
+      textShadowRadius: 10,
   },
   searchInput: {
     flex: 4,
@@ -49,16 +63,7 @@ var styles = StyleSheet.create({
     borderRadius: 10,
     color: '#48BBEC'
   },
-  button: {
-      backgroundColor: '#48BBEC',
-      borderColor: '#48BBEC',
-      borderRadius: 8,
-      borderWidth: 2,
-      alignSelf: 'stretch',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flex: 1,
-  },
+
 })
 
 class WhiteLastUpdateY extends Component{
@@ -86,12 +91,16 @@ class WhiteLastUpdateY extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <View style={{flex: 1.5,}}>
+        <View style={{flex: 1,}}>
         </View>
-        <Text style = {styles.titleText}>Setting Final Cylinder Value</Text>
-        <Text style = {styles.description}>1. Subtract 0.25 from CYL</Text>
-        <Text style = {styles.description}>2. CYL now = {this.state.Y-0.25} </Text>
-        <Text style = {styles.description}>3. You are done with Cylinder Refinement</Text>
+        <Text style = {styles.title}>Final Cylinder Value</Text>
+
+        <Text style = {styles.description}>
+        1. Subtract 0.25 from CYL{'\n\n'}
+        2. CYL now = {this.state.Y-0.25} {'\n\n'}
+        3. You are done with Cylinder Refinement</Text>
+        <View style={{flex: 0.5,}}>
+        </View>
         <View style={{flex: 1,}}>
         </View>
         <TouchableHighlight
@@ -100,7 +109,7 @@ class WhiteLastUpdateY extends Component{
           underlayColor='#99d9f4'>
           <Text style = {styles.buttonText}>Next</Text>
         </TouchableHighlight>
-        <View style={{flex: 2,}}>
+        <View style={{flex: 0.5,}}>
         </View>
       </View>
     );
