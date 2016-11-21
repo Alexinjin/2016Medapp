@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
         fontSize: 20,
         // textAlign: 'center',
         color: '#2077E8',
-        flex: 1,
+        flex: 4,
     },
     button: {
         backgroundColor: '#48BBEC',
@@ -92,14 +92,15 @@ class CylinderPowerRefinemnet extends Component {
             <View style={styles.container}>
               <View style={{flex: 1,}}>
               </View>
-              <Text style={styles.title}>Cylinder Refinement Power
+              <Text style={styles.title}>Cylinder Power Refinement
               </Text>
 
+              <View style={{flex: 0.5,}}>
+              </View>
+
               <Text style={styles.description}>
-              1. Need to focus both images on the retina (axes) </Text>
-              <Text style={styles.description}>
-              2. Twist JCC to align red or white dots at {this.state.Z} </Text>
-              <Text style={styles.description}>
+              1. Need to focus both images on the retina (axes) {'\n'}
+              2. Twist JCC to align red or white dots at {this.state.Z}{'\n'}
               3. Flip JCC, ask which flip patient prefers. </Text>
 
 

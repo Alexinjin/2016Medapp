@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
         fontSize: 20,
         // textAlign: 'center',
         color: '#2077E8',
-        flex: 1,
+        flex: 6,
     },
     button: {
         backgroundColor: '#48BBEC',
@@ -84,18 +84,10 @@ class SphIns extends Component{
                 Establish Sphere Power
                 </Text>
                 <Text style={styles.description}>
-                1. Sphere will establish both parts of the two axes as close as possible to the plane of the retina
-                </Text>
-                <Text style={styles.description}>
-                2. Occlude one eye
-                </Text>
-                <Text style={styles.description}>
-                3. "Fog" the patient by placing {this.state.X}
-                </Text>
-                <Text style={styles.description}>
-                4. Ask patient to read the chart
-                </Text>
-                <Text style={styles.description}>
+                1. Sphere will establish both parts of the two axes as close as possible to the plane of the retina{'\n'}
+                2. Occlude one eye{'\n'}
+                3. "Fog" the patient by placing {this.state.X}{'\n'}
+                4. Ask patient to read the chart{'\n'}
                 (pt should not see better than 20/30)
                 </Text>
                 <View style={{flex: 3,}}>

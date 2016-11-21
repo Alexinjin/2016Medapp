@@ -17,13 +17,13 @@ var styles = StyleSheet.create({
       fontSize: 30,
       fontWeight: 'bold',
       textAlign: 'center',
-      flex: 1,
+      flex: 2,
     },
     description: {
         fontSize: 20,
         // textAlign: 'center',
         color: '#2077E8',
-        flex: 1,
+        flex: 5,
     },
     button: {
         backgroundColor: '#48BBEC',
@@ -109,11 +109,16 @@ class CylinderAxis extends Component{
             };
     return(
       <View style = {styles.container}>
-        <View style={{flex: 1,}}>
+        <View style={{flex: 1.5,}}>
         </View>
         <Text style = {styles.title}>Cylinder Axis Refinement</Text>
-        <Text style = {styles.description}>1. Isolate 20/30 line or one line above best vision </Text>
-        <Text style = {styles.description}>2. Let JCC straddle the instrument</Text>
+
+        <View style={{flex: 1,}}>
+        </View>
+
+        <Text style = {styles.description}>
+        1. Isolate 20/30 line or one line above best vision{'\n'}
+        2. Let JCC straddle the instrument</Text>
         {text}
         <View style={{flex: 1,}}>
         </View>

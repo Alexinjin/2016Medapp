@@ -22,7 +22,7 @@ var styles = StyleSheet.create({
     },
     title: {
       fontSize: 30,
-      flex: 1,
+      flex: 2,
       textAlign: 'center',
       fontWeight: 'bold',
     },
@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
         fontSize: 20,
         // textAlign: 'center',
         color: '#2077E8',
-        flex: 1,
+        flex: 5,
     },
     button: {
         backgroundColor: '#48BBEC',
@@ -102,12 +102,16 @@ class CylinderB extends Component {
     render(){
         return (
             <View style={styles.container}>
-              <View style={{flex: 1,}}>
+              <View style={{flex: 1.5,}}>
               </View>
               <Text style={styles.title}>Cylinder {"<="} 1</Text>
-              <Text style={styles.description}>1. Cyl=0.50 Axis at 180</Text>
-              <Text style={styles.description}>2. Orient JCC so that red is at 90 and white at 180 degrees.</Text>
-              <Text style={styles.description}>3. Flip JCC and ask the patient, which is better.</Text>
+
+              <View style={{flex: 1,}}>
+              </View>
+
+              <Text style={styles.description}>1. Cyl=0.50 Axis at 180{'\n'}
+              2. Orient JCC so that red is at 90 and white at 180 degrees.{'\n'}
+              3. Flip JCC and ask the patient, which is better.</Text>
               <TouchableHighlight
                 style = {styles.button}
                 onPress = {this.on90Pressed.bind(this)}
