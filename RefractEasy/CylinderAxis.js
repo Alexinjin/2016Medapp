@@ -91,7 +91,7 @@ class CylinderAxis extends Component{
       text =  <TouchableHighlight
               style = {styles.button}
               onPress = {this.onNextPressedToA.bind(this)}
-              uderlayColor = '#7AD8FF'>
+              underlayColor = '#7AD8FF'>
                 <Text
                 style = {styles.buttonText}>
                   Next
@@ -101,7 +101,7 @@ class CylinderAxis extends Component{
       text =  <TouchableHighlight
               style = {styles.button}
               onPress = {this.onNextPressedToB.bind(this)}
-              uderlayColor = '#7AD8FF'>
+              underlayColor = '#7AD8FF'>
                 <Text style = {styles.buttonText}>
                   Next
                 </Text>

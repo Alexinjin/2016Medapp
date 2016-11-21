@@ -108,8 +108,9 @@ class CylinderA extends Component {
                   keyboardType='number-pad'
                   onChangeText={(newZ) => this.setState({newZ})}/>
                 <TouchableHighlight style={styles.button}
+                    onPress = {this.onNextPressed.bind(this)}
                     underlayColor='#7AD8FF'>
-                  <Text style= {styles.buttonText} onPress = {this.onNextPressed.bind(this)}> Finish </Text>
+                  <Text style= {styles.buttonText} > Finish </Text>
                 </TouchableHighlight>
               </View>
 

@@ -116,7 +116,7 @@ class CylinderPowerRefinemnet extends Component {
               <TouchableHighlight
                 style = {styles.button}
                 onPress = {this.onWhitePressed.bind(this)}
-                uderlayColor = '#7AD8FF'>
+                underlayColor = '#7AD8FF'>
                 <Text style = {styles.buttonText} >White</Text>
               </TouchableHighlight>
 
