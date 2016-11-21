@@ -2,7 +2,11 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
-var LastScreen = require('./GetLastX');
+
+
+var Start = require('./Start')
+
+
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -11,18 +15,20 @@ var styles = StyleSheet.create({
   },
   description: {
       marginBottom: 50,
-      fontSize: 25,
+      fontSize: 30,
       textAlign: 'center',
       color: '#2077E8',
   },
   flowRight: {
-      padding:15,
+      padding:1,
+      marginTop:30,
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'stretch',
+      justifyContent: 'center'
   },
   dataText: {
-      paddingTop: 5,
+      padding: 5,
       fontSize: 15,
       textAlign: 'left',
   },
@@ -38,6 +44,7 @@ var styles = StyleSheet.create({
   },
   searchInput: {
     flex: 4,
+    paddingLeft:4,
     fontSize: 15,
     borderWidth: 1,
     borderColor: '#48BBEC',
@@ -49,48 +56,49 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#48BBEC',
     borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
+    borderWidth: 3,
+    borderRadius: 10,
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
 })
 
-class UpdateY extends Component{
+class DisplayResult extends Component{
   constructor(props){
     super(props);
     this.state = {
-      X: this.props.X,
-      Y: this.props.Y,
-      Z: this.props.Z,
+        X: this.props.X,
+        Y: this.props.Y,
+        Z: this.props.Z,
     };
   }
-  PressNextRight(){
+  PressNext(){
     this.props.navigator.push({
-      title: "Eye Completed",
-      component: LastScreen,
+      title : 'RefractEasy',
+      component: Start,
+      //make a if statement (if left, passPros:{leftX ....})
       passProps: {
-        X: this.state.X,
-        Y: this.state.Y,
-        Z: this.state.Z,
+          X: this.state.X,
+          Y: this.state.Y,
+          Z: this.state.Z,
       },
     });
   }
   render(){
     return(
       <View style = {styles.container}>
-        <Text style = {styles.description}>Setting Final Cylinder Value</Text>
-        <View>
-          <Text style = {styles.dataText}>1. Subtract 0.25 from CYL</Text>
-          <Text style = {styles.dataText}>2. CYL now = {this.state.Y-0.25} </Text>
-          <Text style = {styles.dataText}>3. You are done with Cylinder Refinement</Text>
+        <Text style = {styles.description}>Final Prescription</Text>
+        <View style = {styles.flowRight}>
+          <Text style = {styles.dataText}>Sph = {this.state.X}</Text>
+          <Text style = {styles.dataText}>Cyl = {this.state.Y}</Text>
+          <Text style = {styles.dataText}>Axis = {this.state.Z}</Text>
         </View>
         <View style = {styles.flowRight}>
           <TouchableHighlight
             style = {styles.button}
-            onPress={this.PressNextRight.bind(this)}
+            onPress={this.PressNext.bind(this)}
             uderlayColor = 'blue'>
-            <Text style = {styles.dataText}>Next</Text>
+            <Text style = {styles.buttonText}>Finished</Text>
           </TouchableHighlight>
         </View>
       </View>
@@ -98,4 +106,6 @@ class UpdateY extends Component{
   }
 }
 
-module.exports = UpdateY;
+
+
+module.exports = DisplayResult;
