@@ -40,7 +40,7 @@ var styles = StyleSheet.create({
   },
 })
 
-class DoneCylinder extends Component{
+class RedLastUpdateY extends Component{
   render(){
     return(
       <View style = {styles.container}>
@@ -62,4 +62,4 @@ class DoneCylinder extends Component{
   }
 }
 
-module.exports = DoneCylinder;
+module.exports = RedLastUpdateY;

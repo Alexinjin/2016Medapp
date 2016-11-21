@@ -59,7 +59,8 @@ var styles = StyleSheet.create({
 
 });
 
-class Choose_Red_White extends Component{
+class WhiteChoice extends Component{
+
 	render(){
 		return(
 			<View style={styles.container}>
@@ -82,4 +83,4 @@ class Choose_Red_White extends Component{
 	}
 }
 
-module.exports = Choose_Red_White;
+module.exports = WhiteChoice;
