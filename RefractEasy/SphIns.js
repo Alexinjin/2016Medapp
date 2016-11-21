@@ -16,6 +16,12 @@ var styles = StyleSheet.create({
         // alignItems: 'center',
         flex: 1,
     },
+    title: {
+      fontSize: 30,
+      flex: 2,
+      textAlign: 'center',
+      fontWeight: 'bold',
+    },
     description: {
         fontSize: 20,
         // textAlign: 'center',
@@ -30,7 +36,7 @@ var styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
+        flex: 2,
     },
     buttonText: {
         fontSize: 25,
@@ -74,6 +80,9 @@ class SphIns extends Component{
             <View style={styles.container}>
                 <View style={{flex: 2,}}>
                 </View>
+                <Text style={styles.title}>
+                Establish Sphere Power
+                </Text>
                 <Text style={styles.description}>
                 1. Sphere will establish both parts of the two axes as close as possible to the plane of the retina
                 </Text>
