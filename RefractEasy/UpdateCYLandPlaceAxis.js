@@ -43,14 +43,13 @@ var styles = StyleSheet.create({
 
 class UpdateCYLandPlaceAxis extends Component {
   constructor(props){
-    super(props);
-    this.state{
-      X: this.props.X-0.25;
-      Y: this.props.Y+0.5;
-      Z: this.props.Z;
-    }
+      super(props);
+      this.state = {
+          X: this.props.X-0.25,
+          Y: this.props.Y+0.5,
+          Z: this.props.Z
+      };
   }
-
 
   onNextPressed(){
     this.props.navigator.push({
@@ -68,10 +67,9 @@ class UpdateCYLandPlaceAxis extends Component {
     return(
       <View style = {styles.container}>
         <View>
-          <Text style = {styles.description}>Steps</Text>
-          <Text style = {styles.dataText}>1. Add 0.5 to CYL</Text>
-          <Text style = {styles.dataText}>2. Place axis at 45/135</Text>
-          <Text style = {styles.dataText}>3. Sphere - 0.25 to maintain the spherical equivalent</Text>
+          <Text style = {styles.description}>White at {this.state.Z}</Text>
+          <Text style = {styles.dataText}>Add 0.50 to CYL and place Axis at {this.state.Z}</Text>
+          <Text style = {styles.dataText}>Minus sphere by 0.25 to maintain the spherical equivalent</Text>
         </View>
         <View style = {styles.flowRight}>
           <TouchableHighlight

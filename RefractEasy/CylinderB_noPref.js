@@ -87,44 +87,42 @@ class CylinderB_noPref extends Component {
         };
     }
 
+        on45Pressed(){
+          this.props.navigator.push({
+              title: 'Cylinder',
+              component: UpdateCYLandPlaceAxis,
+              passProps: {
+                  X: this.state.X,
+                  Y: this.state.Y,
+                  Z: 45,
+              },
+          });
+        }
+
+        on135Pressed(){
+          this.props.navigator.push({
+              title: 'Cylinder',
+              component: UpdateCYLandPlaceAxis,
+              passProps: {
+                  X: this.state.X,
+                  Y: this.state.Y,
+                  Z: 135,
+              },
+          });
+        }
+
+        onNoPrefPressed(){
+          this.props.navigator.push({
+              title: 'Cylinder',
+              component: CylinderB_noPref,
+              passProps: {
+                  X: this.state.X,
+                  Y: this.state.Y,
+                  Z: this.state.Z,
+              },
+          });
+        }
     render(){
-
-    on45Pressed(){
-      this.props.navigator.push({
-          title: 'Cylinder',
-          component: UpdateCYLandPlaceAxis,
-          passProps: {
-              X: this.state.X,
-              Y: this.state.Y,
-              Z: 45,
-          },
-      });
-    }
-
-    on135Pressed(){
-      this.props.navigator.push({
-          title: 'Cylinder',
-          component: UpdateCYLandPlaceAxis,
-          passProps: {
-              X: this.state.X,
-              Y: this.state.Y,
-              Z: 135,
-          },
-      });
-    }
-
-    onNoPrefPressed(){
-      this.props.navigator.push({
-          title: 'Cylinder',
-          component: CylinderB_noPref,
-          passProps: {
-              X: this.state.X,
-              Y: this.state.Y,
-              Z: this.state.Z,
-          },
-      });
-    }
-
       return (
           <View style={styles.container}>
             <Text style={styles.description}>Cylinder {"\n"} Y {"<="} 1</Text>
