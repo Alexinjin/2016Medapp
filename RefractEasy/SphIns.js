@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
         borderRadius: 8,
-        borderWidth: 2,
+        // borderWidth: 2,
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
@@ -34,8 +34,12 @@ var styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 25,
+        textAlign: 'center',
         color: 'white',
-        alignSelf: 'center'
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
+        textShadowOffset: {width: 3, height: 3,},
+        textShadowRadius: 10,
     },
 });
 
@@ -88,7 +92,8 @@ class SphIns extends Component{
                 <View style={{flex: 3,}}>
                 </View>
                 <TouchableHighlight style={styles.button}
-                    onPress={this.onNextPressed.bind(this)}>
+                    onPress={this.onNextPressed.bind(this)}
+                    underlayColor='#7AD8FF'>
                     <Text style={styles.buttonText}>
                         NEXT
                     </Text>
