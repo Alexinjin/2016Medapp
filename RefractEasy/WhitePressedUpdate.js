@@ -6,38 +6,62 @@ var WhiteLastUpdateY = require('./WhiteLastUpdateY');
 
 var styles = StyleSheet.create({
   container: {
-      marginTop: 100,
-      padding: 30,
-      alignItems: 'center',
+      padding: 15,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      // alignItems: 'center',
+      flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    flex: 1,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   description: {
-      marginBottom: 50,
-      fontSize: 30,
-      textAlign: 'center',
+      fontSize: 20,
+      // textAlign: 'center',
       color: '#2077E8',
+      flex: 5,
   },
   flowRight: {
-      paddingLeft: 10,
-      paddingRight: 10,
-      marginTop: 50,
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'stretch',
   },
-  dataText: {
-      padding: 5,
-      fontSize: 15,
-      textAlign: 'left',
+
+  flowDown: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    textShadowColor: 'lightslategray',
+    textShadowOffset: {width: 3, height: 3,},
+    textShadowRadius: 10,
+  },
+  searchInput: {
+    flex: 2,
+    paddingLeft:4,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: '#48BBEC',
+    borderRadius: 10,
+    color: '#48BBEC'
   },
   button: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 3,
-    borderRadius: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      // borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
   },
 })
 
@@ -69,15 +93,14 @@ export default class WhitePressedUpdate extends Component {
   render(){
     return(
        <View style={styles.container}>
-
-            <Text style={styles.description}>Cylinder Refinement Power </Text>
-            <Text style={styles.dataText}>
-            Add 0.50 from CYL so:{"\n"}
-            New Cylinder is {this.state.Y + 0.5}{"\n"}
-            Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere:{"\n"}
-            New Sphere is {this.state.X - 0.25}{"\n"}
-            {"\n"}
-            Repeat JCC Flip with new values and ask patient which is better.{"\n"}
+            <View style = {{flex:1,}}></View>
+            <Text style={styles.title}>Cylinder Refinement Power </Text>
+            <Text style={styles.description}>
+            1. Add 0.50 from CYL so:{"\n\n"}
+            2. New Cylinder is {this.state.Y + 0.5}{"\n\n"}
+            3. Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere:{"\n\n"}
+            4. New Sphere is {this.state.X - 0.25}{"\n\n"}
+            5. Repeat JCC Flip with new values and ask patient which is better.{"\n\n"}
             </Text>
             <View style = {styles.flowRight}>
               <TouchableHighlight
