@@ -13,7 +13,7 @@ var styles = StyleSheet.create({
     },
     title: {
       fontSize: 30,
-      flex: 1,
+      flex: 3,
       textAlign: 'center',
       fontWeight: 'bold',
     },
@@ -21,7 +21,7 @@ var styles = StyleSheet.create({
         fontSize: 20,
         // textAlign: 'center',
         color: '#2077E8',
-        flex: 1,
+        flex: 6,
     },
     button: {
         backgroundColor: '#48BBEC',
@@ -31,7 +31,7 @@ var styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
+        flex: 2,
     },
     buttonText: {
         fontSize: 25,
@@ -70,10 +70,10 @@ class Display90or180 extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <View style = {{flex:1,}}></View>
-        <Text style = {styles.title}>White at {this.state.Z}</Text>
-        <Text style = {styles.description}>1. Add 0.50 to CYL and place Axis at {this.state.Z}</Text>
-        <Text style = {styles.description}>2. Minus sphere by 0.25 to maintain the spherical equivalent</Text>
+        <View style = {{flex:1.5,}}></View>
+        <Text style = {styles.title}>White at <Text style={{color: 'red'}}>{this.state.Z}</Text></Text>
+        <Text style = {styles.description}>1. Add 0.50 to CYL and place Axis at <Text style={{color: 'red'}}>{this.state.Z}</Text>{'\n'}{'\n'}
+        2. Minus sphere by 0.25 to maintain the spherical equivalent</Text>
         <TouchableHighlight
           style = {styles.button}
           onPress = {this.onNextPressed.bind(this)}
