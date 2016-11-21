@@ -32,7 +32,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
         borderRadius: 8,
-        borderWidth: 2,
+        // borderWidth: 2,
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
@@ -43,8 +43,7 @@ var styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         fontWeight: 'bold',
-        padding: 10,
-        textShadowColor: 'lightseagreen',
+        textShadowColor: 'lightslategray',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
@@ -89,7 +88,8 @@ class Start extends Component {
                             style={styles.image}/>
                 </View>
                 <TouchableHighlight style={styles.button}
-                    onPress={this.onStartPressed.bind(this)}>
+                    onPress={this.onStartPressed.bind(this)}
+                    underlayColor='#7AD8FF'>
                     <Text style={styles.buttonText}>
                         Begin Test
                     </Text>
