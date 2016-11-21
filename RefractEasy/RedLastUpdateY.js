@@ -4,40 +4,44 @@ import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-nativ
 
 var GetLastX = require('./GetLastX');
 var styles = StyleSheet.create({
-  container: {
-      marginTop: 100,
-      padding: 30,
-      alignItems: 'center',
-  },
-  description: {
-      marginBottom: 50,
+    container: {
+        padding: 15,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
+    },
+    title: {
       fontSize: 30,
+      flex: 2,
       textAlign: 'center',
-      color: '#2077E8',
-  },
-  flowRight: {
-      paddingLeft: 5,
-      paddingRight: 5,
-      marginTop: 50,
-      flexDirection: 'row',
-      alignItems: 'center',
-      alignSelf: 'stretch',
-  },
-  dataText: {
-      padding: 5,
-      fontSize: 15,
-      textAlign: 'left',
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 3,
-    borderRadius: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
+      fontWeight: 'bold',
+    },
+    description: {
+        fontSize: 20,
+        textAlign: 'center',
+        color: '#2077E8',
+        flex: 5,
+    },
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        // borderWidth: 2,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    buttonText: {
+        fontSize: 25,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
+        textShadowOffset: {width: 3, height: 3,},
+        textShadowRadius: 10,
+    },
 })
 
 class RedLastUpdateY extends Component{
@@ -63,18 +67,22 @@ class RedLastUpdateY extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <View>
-          <Text style = {styles.description}>Add 0.25 to Cylinder</Text>
-          <Text style = {styles.description}> Cylinder now is {this.state.Y+0.25} </Text>
-          <Text style = {styles.dataText}>You're done with Cylinder refinement</Text>
-          </View>
-        <View style = {styles.flowRight}>
-          <TouchableHighlight
-            style = {styles.button}
-            onPress={this.PressNextRight.bind(this)}
-            uderlayColor = 'blue'>
-            <Text style = {styles.dataText}>Next</Text>
-          </TouchableHighlight>
+        <View style={{flex: 2.5,}}>
+        </View>
+
+        <Text style = {styles.description}>Add 0.25 to Cylinder{'\n\n'}
+        Cylinder now is <Text style={{color: 'red',}}>{this.state.Y+0.25} </Text>{'\n\n'}
+        You're done with Cylinder refinement
+        </Text>
+
+        <TouchableHighlight
+          style = {styles.button}
+          onPress={this.PressNextRight.bind(this)}
+          underlayColor = '#7AD8FF'>
+          <Text style = {styles.buttonText}>Next</Text>
+        </TouchableHighlight>
+
+        <View style={{flex: 1,}}>
         </View>
       </View>
 

@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'left',
         color: '#2077E8',
-        flex: 6,
+        flex: 7,
     },
     inputBox: {
         // height: 36,
@@ -97,9 +97,9 @@ class CylinderA extends Component {
     render(){
         return (
             <View style={styles.container}>
-              <View style={{flex: 1,}}>
+              <View style={{flex: 1.5,}}>
               </View>
-              <Text style={styles.title}>Cylinder {'>'} 1</Text>
+              <Text style={styles.title}>Cylinder {'='} <Text style={{color: 'red',}}>{this.state.Y}</Text></Text>
 
               <View style={styles.flowRight}>
                 <TextInput
@@ -114,10 +114,10 @@ class CylinderA extends Component {
                 </TouchableHighlight>
               </View>
 
-              <View style={{flex: 1,}}>
+              <View style={{flex: 0.5,}}>
               </View>
 
-              <Text style={styles.description}> Cyl = <Text style={[styles.description, {color: 'red',}]}>{this.state.Y}</Text>{'\n'}{'\n'}
+              <Text style={styles.description}>
               1. Place Red or White dots Axis at <Text style={[styles.description, {color: 'red',}]}>{this.state.Z+45} </Text>{'\n'}{'\n'}
               2. Flip the cross cylinder and present as 1 or 2{'\n'}{'\n'}
               3. Move towards white dots on best choice flip (15 degrees){'\n'}{'\n'}

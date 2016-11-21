@@ -100,7 +100,7 @@ class CylinderPowerRefinemnet extends Component {
 
               <Text style={styles.description}>
               1. Need to focus both images on the retina (axes) {'\n'}{'\n'}
-              2. Twist JCC to align red or white dots at {this.state.Z}{'\n'}{'\n'}
+              2. Twist JCC to align red or white dots at <Text style={{color: 'red',}}>{this.state.Z}</Text>{'\n'}{'\n'}
               3. Flip JCC, ask which flip patient prefers. </Text>
 
 
