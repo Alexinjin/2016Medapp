@@ -33,7 +33,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
         borderRadius: 8,
-        borderWidth: 2,
+        // borderWidth: 2,
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
@@ -51,8 +51,12 @@ var styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 25,
+        textAlign: 'center',
         color: 'white',
-        alignSelf: 'center'
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
+        textShadowOffset: {width: 3, height: 3,},
+        textShadowRadius: 10,
     },
 });
 
@@ -118,7 +122,7 @@ class EnterXYZ extends Component {
                 </View>
                 <TouchableHighlight style={styles.button}
                     onPress={this.onBeginPressed.bind(this)}
-                    underlayColor='#99d9f4'>
+                    underlayColor='#7AD8FF'>
                     <Text style={styles.buttonText}>
                         Begin Refraction
                     </Text>
