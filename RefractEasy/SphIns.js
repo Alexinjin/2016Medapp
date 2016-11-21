@@ -71,16 +71,16 @@ class SphIns extends Component{
                 <View style={{flex: 2,}}>
                 </View>
                 <Text style={styles.description}>
-                Sphere will establish both parts of the two axes as close as possible to the plane of the retina
+                1. Sphere will establish both parts of the two axes as close as possible to the plane of the retina
                 </Text>
                 <Text style={styles.description}>
-                Occlude one eye
+                2. Occlude one eye
                 </Text>
                 <Text style={styles.description}>
-                "Fog" the patient by placing {this.state.X}
+                3. "Fog" the patient by placing {this.state.X}
                 </Text>
                 <Text style={styles.description}>
-                Ask patient to read the chart
+                4. Ask patient to read the chart
                 </Text>
                 <Text style={styles.description}>
                 (pt should not see better than 20/30)
