@@ -6,61 +6,52 @@ import {
     View,
     Text,
     Image,
+    TouchableHighlight,
 } from 'react-native';
 
 var EnterXYZ = require('./EnterXYZ');
 var styles = StyleSheet.create({
     container: {
-        marginTop: 120,
         padding: 30,
         alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        flex: 1,
     },
     description: {
-        marginBottom: 50,
         fontSize: 30,
         textAlign: 'center',
         color: '#2077E8',
+        flex: 1,
     },
     image: {
         width: 320,
         height: 154,
     },
-    flowRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        borderWidth: 2,
         alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 2,
     },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
+    buttonText: {
+        fontSize: 25,
         textAlign: 'center',
         color: 'white',
-        backgroundColor: 'paleturquoise',
         fontWeight: 'bold',
-        flex: 1,
         padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
         textShadowColor: 'lightseagreen',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
+    imgBox: {
+        flex: 3,
         alignItems: 'center',
-        alignSelf: 'stretch',
-    },
+    }
 });
 
 
@@ -68,24 +59,21 @@ class Start extends Component {
     constructor(props){
         super(props);
         this.state = {
-            rightX: 0,
-            rightY: 0,
-            rightZ: 0,
-            leftX: 0,
-            leftY: 0,
-            leftZ: 0,
+            X: this.props.X,
+            Y: this.props.Y,
+            Z: this.props.Z,
         };
+        console.log('Start: x: ' + this.state.X + ', y: ' + this.state.Y + ', z: ' + this.state.Z);
     }
 
-    onStartRight(){
+    onStartPressed(){
         this.props.navigator.push({
-            title: 'Input Initial Values',
+            title: 'Input XYZ',
             component: EnterXYZ,
             passProps: {
-                X: this.state.rightX,
-                Y: this.state.rightY,
-                Z: this.state.rightZ,
-                eye: 'right',
+                X: this.state.X,
+                Y: this.state.Y,
+                Z: this.state.Z,
             },
         });
     }
@@ -93,35 +81,19 @@ class Start extends Component {
     render(){
         return (
             <View style={styles.container}>
-                <Text style={styles.description}>Press one eye to begin</Text>
-                <Image source={require('./Resources/Start-eyes.png')} style={styles.image}/>
-                <View style={styles.flowRight}>
-                    <Text style={styles.smallTexts}
-                        onPress={this.onStartRight.bind(this)}>
-                        Right
-                    </Text>
-                    <Text style={styles.smallTexts}>
-                        Left
-                    </Text>
+                <View style={{flex: 1,}}>
                 </View>
-                <View style={styles.flowRight}>
-                    <View style={styles.flowDown}>
-                        <Text style={styles.dataText}>Sph = {this.state.rightX}
-                        </Text>
-                        <Text style={styles.dataText}>Cyl = {this.state.rightY}
-                        </Text>
-                        <Text style={styles.dataText}>Axis = {this.state.rightZ}
-                        </Text>
-                    </View>
-                    <View style={styles.flowDown}>
-                        <Text style={styles.dataText}>Sph = {this.state.leftX}
-                        </Text>
-                        <Text style={styles.dataText}>Cyl = {this.state.leftY}
-                        </Text>
-                        <Text style={styles.dataText}>Axis = {this.state.leftZ}
-                        </Text>
-                    </View>
+                <Text style={styles.description}>Refraction Guide</Text>
+                <View style={styles.imgBox}>
+                    <Image source={require('./Resources/Start-eyes.png')}
+                            style={styles.image}/>
                 </View>
+                <TouchableHighlight style={styles.button}
+                    onPress={this.onStartPressed.bind(this)}>
+                    <Text style={styles.buttonText}>
+                        Begin Test
+                    </Text>
+                </TouchableHighlight>
             </View>
         );
     }

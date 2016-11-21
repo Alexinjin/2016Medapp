@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
 
-var Start = require('./Start')
+var DisplayResult = require('./DisplayResult')
 
 
 var styles = StyleSheet.create({
@@ -74,13 +74,12 @@ class GetLastX extends Component{
   PressNext(){
     this.props.navigator.push({
       title : 'RefractEasy',
-      component: Start,
+      component: DisplayResult,
       //make a if statement (if left, passPros:{leftX ....})
       passProps: {
           X: this.state.X,
           Y: this.state.Y,
           Z: this.state.Z,
-          eye: this.state.eye,
       },
     });
   }
