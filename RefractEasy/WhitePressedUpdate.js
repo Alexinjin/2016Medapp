@@ -14,7 +14,7 @@ var styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    flex: 1,
+    flex: 2.8,
     textAlign: 'center',
     fontWeight: 'bold',
   },
@@ -22,7 +22,7 @@ var styles = StyleSheet.create({
       fontSize: 20,
       // textAlign: 'center',
       color: '#2077E8',
-      flex: 5,
+      flex: 5.5,
   },
   flowRight: {
       flexDirection: 'row',
@@ -93,7 +93,7 @@ export default class WhitePressedUpdate extends Component {
   render(){
     return(
        <View style={styles.container}>
-            <View style = {{flex:1,}}></View>
+            <View style = {{flex:1.5,}}></View>
             <Text style={styles.title}>Cylinder Refinement Power </Text>
             <Text style={styles.description}>
             1. Add 0.50 to Cylinder so:{"\n\n"}
@@ -102,24 +102,21 @@ export default class WhitePressedUpdate extends Component {
             4. New Sphere is {this.state.X - 0.25}{"\n\n"}
             5. Repeat JCC Flip with new values and ask patient which is better.{"\n\n"}
             </Text>
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                style = {styles.button}
-                onPress = {this.onRedPressed.bind(this)}
-                underlayColor = '#7AD8FF'>
-                <Text style = {styles.buttonText}>Red</Text>
-              </TouchableHighlight>
-            </View>
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                onPress = {this.onWhitePressed.bind(this)}
-                style = {styles.button}
-                underlayColor = '#7AD8FF'>
-                <Text style = {styles.buttonText} >White</Text>
-              </TouchableHighlight>
-            </View>
+            <TouchableHighlight
+              style = {styles.button}
+              onPress = {this.onRedPressed.bind(this)}
+              underlayColor = '#7AD8FF'>
+              <Text style = {styles.buttonText}>Red</Text>
+            </TouchableHighlight>
+            <View style = {{flex:0.3,}}></View>
+            <TouchableHighlight
+              onPress = {this.onWhitePressed.bind(this)}
+              style = {styles.button}
+              underlayColor = '#7AD8FF'>
+              <Text style = {styles.buttonText} >White</Text>
+            </TouchableHighlight>
 
-
+            <View style = {{flex:1,}}></View>
         </View>
         );
     }
