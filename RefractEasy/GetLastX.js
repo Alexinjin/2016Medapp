@@ -18,7 +18,9 @@ var styles = StyleSheet.create({
       flex: 1.5,
   },
   titleText : {
-    fontSize : 27,
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
     flex : 2,
   },
   flowRight: {
@@ -80,6 +82,9 @@ class GetLastX extends Component{
       },
     });
   }
+  onXChanged(event){
+      this.setState({ X: parseFloat(event.nativeEvent.text) });
+  }
   render(){
     return(
       <View style = {styles.container}>
@@ -89,6 +94,8 @@ class GetLastX extends Component{
         <View style = {styles.flowRight}>
           <TextInput
           style = {styles.searchInput}
+          onChange={this.onXChanged.bind(this)}
+          keyboardType='number-pad'
           placeholder = ' Patient Stops At: '/>
           <TouchableHighlight
             style = {styles.button}
