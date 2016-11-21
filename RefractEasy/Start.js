@@ -22,6 +22,7 @@ var styles = StyleSheet.create({
         fontSize: 30,
         textAlign: 'center',
         color: '#2077E8',
+        fontWeight: 'bold',
         flex: 1,
     },
     image: {
