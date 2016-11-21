@@ -46,18 +46,17 @@ class UpdateCYLandPlaceAxis extends Component {
     super(props);
     this.state{
       X: this.props.X;
-      Y: this.props.Z;
-
+      Y: this.props.Y;
+      Z: this.props.Z;
     }
   }
   render(){
     return(
       <View style = {styles.container}>
         <View>
-          <Text style = {styles.description}>Steps</Text>
-          <Text style = {styles.dataText}>1. Add 0.5 to CYL</Text>
-          <Text style = {styles.dataText}>2. Place axis at 45/135</Text>
-          <Text style = {styles.dataText}>3. Sphere - 0.25 to maintain the spherical equivalent</Text>
+          <Text style = {styles.description}>White at 90 / 180</Text>
+          <Text style = {styles.dataText}>Add 0.50 to CYL and place Axis at 90 / 180</Text>
+          <Text style = {styles.dataText}>Minus sphere by 0.25 to maintain the spherical equivalent</Text>
         </View>
         <View style = {styles.flowRight}>
           <TouchableHighlight

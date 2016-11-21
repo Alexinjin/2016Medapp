@@ -9,7 +9,7 @@ import{
 	ActivityIndicator,
 	Image
 } from 'react-native';
-var UpdateY = require('./UpdateY');
+var WhiteLastUpdateY = require('./WhiteLastUpdateY');
 var WhitePressedUpdate = require('./WhitePressedUpdate');
 var styles = StyleSheet.create({
 	description:{
@@ -73,7 +73,7 @@ class WhiteChoice extends Component{
 	PressRed(){
     this.props.navigator.push({
       title: "Eye Completed",
-      component: UpdateY,
+      component: WhiteLastUpdateY ,
       passProps: {
           X: this.state.X,
           Y: this.state.Y,
@@ -82,13 +82,13 @@ class WhiteChoice extends Component{
     });
   }
   PressWhite(){
-    this.props.navigator.push({
+    this.props.navigator.pop({
       title: "Eye Completed",
       component: WhitePressedUpdate,
       passProps: {
-          X: this.state.rightX,
-          Y: this.state.rightY,
-          Z: this.state.rightZ,
+          X: this.state.X,
+          Y: this.state.Y,
+          Z: this.state.Z,
       },
     });
   }
@@ -101,14 +101,14 @@ class WhiteChoice extends Component{
 			<TouchableHighlight style={styles.button}
 				  onPress={this.PressRed.bind(this)}
 			      underlayColor='blue'>
-			    <Text style={styles.buttonText}>Red</Text>
+			<Text style={styles.buttonText}>Red</Text>
 			</TouchableHighlight>
 			</View>
 			<View style={styles.flowRight}>
 			<TouchableHighlight style={styles.button}
 				onPress={this.PressWhite.bind(this)}
 			    underlayColor='blue'>
-			    <Text style={styles.buttonText}>White</Text>
+			<Text style={styles.buttonText}>White</Text>
 			</TouchableHighlight>
 			</View>
 			</View>

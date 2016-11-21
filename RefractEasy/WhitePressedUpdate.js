@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight, NavigatorIOS} from 'react-native';
 
-var Choose = require('./Choose_Red_White');
+var WhiteChoice = require('./WhiteChoice');
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -41,12 +41,12 @@ var styles = StyleSheet.create({
 })
 
 
-class WhitePressedUpdate extends Component {
+export default class WhitePressedUpdate extends Component {
   constructor(props){
     super(props);
     this.state = {
-        X: 10,
-        Y: 190,
+        X: 0,
+        Y: 0,
         Z: 0,
 
     };
@@ -54,7 +54,7 @@ class WhitePressedUpdate extends Component {
   PressNext(){
     this.props.navigator.push({
       title: "Eye Completed",
-      component: Choose,
+      component: WhiteChoice,
       passProps: {
           X: this.state.X,
           Y: this.state.Y,
