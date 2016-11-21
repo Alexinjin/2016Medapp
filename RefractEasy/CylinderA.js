@@ -9,7 +9,7 @@ import {
     TextInput
 } from 'react-native';
 
-//var EnterXYZ = require('./EnterXYZ');
+var CylinderPowerRefinemnet = require('./CylinderPowerRefinemnet');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -68,14 +68,24 @@ class CylinderA extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 10,
-            leftY: 0,
-            leftZ: 0,
-            rightX: 0,
-            rightY: 0,
-            rightZ: 0,
-            newZ: '000000'
+          X: this.props.X,
+          Y: this.props.Y,
+          Z: this.props.Z,
+          newZ : 0
         };
+    }
+
+    onNextPressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: CylinderPowerRefinemnet,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+
     }
 
     render(){
@@ -83,8 +93,8 @@ class CylinderA extends Component {
             <View style={styles.container}>
               <Text style={styles.description}>Cylinder {"\n"} Y {'>'} 1</Text>
 
-              <Text style={styles.dataText}> Cyl = Y  {"\n"}
-              Place Red or White dots Axis at Z+45 {"\n"}
+              <Text style={styles.dataText}> Cyl = {this.state.Y}  {"\n"}
+              Place Red or White dots Axis at {this.state.Z+45} {"\n"}
               Flip the cross cylinder and present as 1 or 2 {"\n"}
               Move towards white dots on best choice flip (15 degrees) {"\n"}
               Keep changing and switching axis until reverse choice (counter) {"\n"}
@@ -94,12 +104,12 @@ class CylinderA extends Component {
 
               <TextInput
                 style={{height: 40}}
-                placeholder = 'hahahahahahaha'
+                placeholder = 'placeholder'
                 onChangeText={(newZ) => this.setState({newZ})}
               />
 
               <View style={styles.flowRight}>
-                <Text style= {styles.smallTexts}> Finish </Text>
+                <Text style= {styles.smallTexts} onPress = {this.onNextPressed.bind(this)}> Finish </Text>
               </View>
 
 
