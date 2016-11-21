@@ -97,8 +97,8 @@ class RedPressedUpdate extends Component {
           title: 'Cylinder',
           component: RedLastUpdateY,
           passProps: {
-              X: this.state.X,
-              Y: this.state.Y,
+              X: this.state.X + 0.25,
+              Y: this.state.Y - 0.5,
               Z: this.state.Z,
           },
       });
