@@ -45,11 +45,10 @@ export default class WhitePressedUpdate extends Component {
   constructor(props){
     super(props);
     this.state = {
-        X: 0,
-        Y: 0,
-        Z: 0,
-
-    };
+          X: this.props.X-0.25,
+          Y: this.props.Y+0.5,
+          Z: this.props.Z,
+        };
   }
   PressNext(){
     this.props.navigator.push({
@@ -66,9 +65,10 @@ export default class WhitePressedUpdate extends Component {
     return(
       <View style = {styles.container}>
         <View>
-          <Text style = {styles.description}>Updating CYL and Sph</Text>
-          <Text style = {styles.dataText}>1. Add 0.5 to CYL to maintain the spherical equivalent</Text>
-          <Text style = {styles.dataText}>2. Subtract 0.25 to Sph</Text>
+          <Text style = {styles.description}>1. Add 0.5 from CYL</Text>
+        <Text style = {styles.description}>2. CYL now = {this.state.Y+0.5} </Text>
+        <Text style = {styles.description}>3. Maintain spherical equivalent.Subtract 0.25 to Sphere </Text>
+        <Text style = {styles.description}>4. New Sphere is {this.state.X-0.25}</Text>
         </View>
         <View style = {styles.flowRight}>
           <TouchableHighlight style = {styles.button}
