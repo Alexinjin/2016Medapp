@@ -92,15 +92,15 @@ class CylinderPowerRefinemnet extends Component {
             <View style={styles.container}>
               <View style={{flex: 1,}}>
               </View>
-              <Text style={styles.title}>Cylinder Power Refinement
+              <Text style={styles.title}>Cylinder Power
               </Text>
 
               <View style={{flex: 0.5,}}>
               </View>
 
               <Text style={styles.description}>
-              1. Need to focus both images on the retina (axes) {'\n'}
-              2. Twist JCC to align red or white dots at {this.state.Z}{'\n'}
+              1. Need to focus both images on the retina (axes) {'\n'}{'\n'}
+              2. Twist JCC to align red or white dots at {this.state.Z}{'\n'}{'\n'}
               3. Flip JCC, ask which flip patient prefers. </Text>
 
 

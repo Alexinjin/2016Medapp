@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
         fontSize: 20,
         // textAlign: 'center',
         color: '#2077E8',
-        flex: 5,
+        flex: 4,
     },
     button: {
         backgroundColor: '#48BBEC',
@@ -33,7 +33,7 @@ var styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
+        flex: 2,
     },
     buttonText: {
         fontSize: 25,
@@ -111,13 +111,13 @@ class CylinderAxis extends Component{
       <View style = {styles.container}>
         <View style={{flex: 1.5,}}>
         </View>
-        <Text style = {styles.title}>Cylinder Axis Refinement</Text>
+        <Text style = {styles.title}>Cylinder Axis</Text>
 
         <View style={{flex: 1,}}>
         </View>
 
         <Text style = {styles.description}>
-        1. Isolate 20/30 line or one line above best vision{'\n'}
+        1. Isolate 20/30 line or one line above best vision{'\n'}{'\n'}
         2. Let JCC straddle the instrument</Text>
         {text}
         <View style={{flex: 1,}}>

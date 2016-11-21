@@ -21,7 +21,7 @@ var styles = StyleSheet.create({
     },
     title: {
       fontSize: 30,
-      flex: 2,
+      flex: 1,
       textAlign: 'center',
       fontWeight: 'bold',
     },
@@ -97,7 +97,7 @@ class CylinderA extends Component {
     render(){
         return (
             <View style={styles.container}>
-              <View style={{flex: 2,}}>
+              <View style={{flex: 1,}}>
               </View>
               <Text style={styles.title}>Cylinder {'>'} 1</Text>
 
@@ -117,19 +117,13 @@ class CylinderA extends Component {
               <View style={{flex: 1,}}>
               </View>
 
-              <Text style={styles.description}> Cyl = {this.state.Y}{'\n'}
-              1. Place Red or White dots Axis at {this.state.Z+45}{'\n'}
-
-              2. Flip the cross cylinder and present as 1 or 2{'\n'}
-
-              3. Move towards white dots on best choice flip (15 degrees){'\n'}
-
-              4. Keep changing and switching axis until reverse choice (counter){'\n'}
-
-              5. Use 5 degree increments{'\n'}
-
+              <Text style={styles.description}> Cyl = <Text style={[styles.description, {color: 'red',}]}>{this.state.Y}</Text>{'\n'}{'\n'}
+              1. Place Red or White dots Axis at <Text style={[styles.description, {color: 'red',}]}>{this.state.Z+45} </Text>{'\n'}{'\n'}
+              2. Flip the cross cylinder and present as 1 or 2{'\n'}{'\n'}
+              3. Move towards white dots on best choice flip (15 degrees){'\n'}{'\n'}
+              4. Keep changing and switching axis until reverse choice (counter){'\n'}{'\n'}
+              5. Use 5 degree increments{'\n'}{'\n'}
               6. Then smaller amounts when reversed again until suitable</Text>
-
               <View style={{flex: 1,}}>
               </View>
 

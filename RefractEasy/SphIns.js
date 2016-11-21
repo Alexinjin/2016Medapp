@@ -84,10 +84,10 @@ class SphIns extends Component{
                 Establish Sphere Power
                 </Text>
                 <Text style={styles.description}>
-                1. Sphere will establish both parts of the two axes as close as possible to the plane of the retina{'\n'}
-                2. Occlude one eye{'\n'}
-                3. "Fog" the patient by placing {this.state.X}{'\n'}
-                4. Ask patient to read the chart{'\n'}
+                1. Sphere will establish both parts of the two axes as close as possible to the plane of the retina{'\n'}{'\n'}
+                2. Occlude one eye{'\n'}{'\n'}
+                3. "Fog" the patient by placing {this.state.X}{'\n'}{'\n'}
+                4. Ask patient to read the chart{'\n'}{'\n'}
                 (pt should not see better than 20/30)
                 </Text>
                 <View style={{flex: 3,}}>

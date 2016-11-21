@@ -109,8 +109,8 @@ class CylinderB extends Component {
               <View style={{flex: 1,}}>
               </View>
 
-              <Text style={styles.description}>1. Cyl=0.50 Axis at 180{'\n'}
-              2. Orient JCC so that red is at 90 and white at 180 degrees.{'\n'}
+              <Text style={styles.description}>1. Cyl=0.50 Axis at 180{'\n'}{'\n'}
+              2. Orient JCC so that red is at 90 and white at 180 degrees.{'\n'}{'\n'}
               3. Flip JCC and ask the patient, which is better.</Text>
               <TouchableHighlight
                 style = {styles.button}
