@@ -2,7 +2,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
 
-
+var CylinderA = require('./CylinderA');
+var CylinderB = require('./CylinderB');
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -38,10 +39,61 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
-})
+});
+
 
 class CylinderAxis extends Component{
+  constructor(props){
+      super(props);
+      this.state = {
+          X: 10,
+          Y: 1.5,
+          Z: 0
+      };
+  }
+
+  onNextPressedToA(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: CylinderA,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+  }
+
+  onNextPressedToB(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: CylinderB,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+  }
+
+
   render(){
+    var text;
+    if (this.state.Y > 1){
+      text =  <TouchableHighlight
+              style = {styles.button}
+              uderlayColor = 'blue'>
+              <Text style = {styles.dataText}
+              onPress = {this.onNextPressedToA.bind(this)}>Next</Text>
+              </TouchableHighlight>;
+      }else {
+      text =  <TouchableHighlight
+              style = {styles.button}
+              uderlayColor = 'blue'>
+              <Text style = {styles.dataText}
+              onPress = {this.onNextPressedToB.bind(this)}>Next</Text>
+              </TouchableHighlight>;
+            }
     return(
       <View style = {styles.container}>
         <View>
@@ -50,11 +102,7 @@ class CylinderAxis extends Component{
           <Text style = {styles.dataText}>Let JCC straddle the instrument</Text>
           </View>
         <View style = {styles.flowRight}>
-          <TouchableHighlight
-            style = {styles.button}
-            uderlayColor = 'blue'>
-            <Text style = {styles.dataText}>Next</Text>
-          </TouchableHighlight>
+        {text}
         </View>
       </View>
 

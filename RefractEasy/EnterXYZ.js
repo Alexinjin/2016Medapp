@@ -11,51 +11,46 @@ import {
 
 var styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
-        marginTop: 80,
         padding: 15,
-        flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
     },
     description: {
-        fontSize: 15,
+        fontSize: 20,
         textAlign: 'center',
-        marginBottom: 30,
+        color: '#2077E8',
         flex: 1,
-    },
-    inputBox: {
-        height: 36,
-        padding: 4,
-        marginRight: 5,
-        flex: 4,
-        fontSize: 18,
-        borderWidth: 1,
-        borderColor: '#48BBEC',
-        borderRadius: 8,
-        color: '#48BBEC'
     },
     flowRight: {
         flexDirection: 'row',
         alignItems: 'center',
         alignSelf: 'stretch',
-        flex: 4,
+        flex: 1,
     },
     button: {
-        marginTop: 50,
-        height: 36,
-        flexDirection: 'row',
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
-        borderWidth: 1,
         borderRadius: 8,
-        marginBottom: 10,
+        borderWidth: 2,
         alignSelf: 'stretch',
         justifyContent: 'center',
+        alignItems: 'center',
+        flex: 2,
+    },
+    inputBox: {
+        height: 36,
+        padding: 4,
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        color: '#48BBEC',
         flex: 1,
     },
     buttonText: {
-        fontSize: 18,
+        fontSize: 25,
         color: 'white',
         alignSelf: 'center'
     },
@@ -103,6 +98,8 @@ class EnterXYZ extends Component {
     render(){
         return (
             <View style={styles.container}>
+                <View style={{flex: 1,}}>
+                </View>
                 <Text style={styles.description}>
                     Input previous prescription/ AR Findings/ Retinoscopy
                 </Text>
@@ -117,6 +114,7 @@ class EnterXYZ extends Component {
                         placeholder='Cyl'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onZChanged.bind(this)}
+                        keyboardType='number-pad'
                         placeholder='Axis'/>
                 </View>
                 <TouchableHighlight style={styles.button}
@@ -126,6 +124,8 @@ class EnterXYZ extends Component {
                         Begin Refraction
                     </Text>
                 </TouchableHighlight>
+                <View style={{flex: 4,}}>
+                </View>
             </View>
         );
     }
