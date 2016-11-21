@@ -14,68 +14,43 @@ var RedPressedUpdate = require('./RedPressedUpdate');
 var WhitePressedUpdate = require('./WhitePressedUpdate');
 var styles = StyleSheet.create({
     container: {
-        marginTop: 120,
-        padding: 30,
-        alignItems: 'center',
+        padding: 15,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
+    },
+    title: {
+      fontSize: 30,
+      flex: 1,
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
     description: {
-        marginBottom: 50,
-        fontSize: 30,
-        textAlign: 'center',
+        fontSize: 20,
+        // textAlign: 'center',
         color: '#2077E8',
-    },
-    image: {
-        width: 320,
-        height: 154,
-    },
-    flowRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
-        textAlign: 'left',
-        color: 'white',
-        backgroundColor: 'paleturquoise',
-        fontWeight: 'bold',
         flex: 1,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
-        textShadowColor: 'lightseagreen',
+    },
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        // borderWidth: 2,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    buttonText: {
+        fontSize: 25,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    button: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-        borderWidth: 3,
-        borderRadius: 10,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        marginTop: 30
-},
-
 });
 
 class CylinderPowerRefinemnet extends Component {
@@ -115,28 +90,35 @@ class CylinderPowerRefinemnet extends Component {
     render(){
         return (
             <View style={styles.container}>
-            <Text style={styles.description}>Cylinder Refinement Power </Text>
-
-              <Text style={styles.dataText}>
-              Need to focus both images on the retina (axes) {"\n"}
-              Twist JCC to align red or white dots at {this.state.Z}{"\n"}
-              Flip JCC, ask which flip patient prefers.{"\n"}
+              <View style={{flex: 1,}}>
+              </View>
+              <Text style={styles.title}>Cylinder Refinement Power
               </Text>
 
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText} onPress = {this.onRedPressed.bind(this)}>Red</Text>
-                </TouchableHighlight>
+              <Text style={styles.description}>
+              1. Need to focus both images on the retina (axes) </Text>
+              <Text style={styles.description}>
+              2. Twist JCC to align red or white dots at {this.state.Z} </Text>
+              <Text style={styles.description}>
+              3. Flip JCC, ask which flip patient prefers. </Text>
+
+
+              <TouchableHighlight
+                style = {styles.button}
+                onPress = {this.onRedPressed.bind(this)}
+                underlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText} >Red</Text>
+              </TouchableHighlight>
+
+              <View style={{flex: 0.3,}}>
               </View>
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText} onPress = {this.onWhitePressed.bind(this)}>White</Text>
-                </TouchableHighlight>
-              </View>
+
+              <TouchableHighlight
+                style = {styles.button}
+                onPress = {this.onWhitePressed.bind(this)}
+                uderlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText} >White</Text>
+              </TouchableHighlight>
 
 
             </View>
