@@ -69,22 +69,18 @@ class SphTest extends Component{
             this.goToNext();
         }
         else{
-            console.log('on plus: x was: ' + this.state.X);
-            this.setState({X:this.state.X + 0.25, Y: this.state.Y, Z: this.state.Z,});
+            this.state.X += 0.25;
+            this.setState({X: this.state.X, Y: this.state.Y, Z: this.state.Z,});
             this.inPlus = true;
-            console.log('x become: ' + this.state.X);
         }
     }
 
     handleMinus(){
+        this.state.X -= 0.25;
+        this.setState({X: this.state.X, Y: this.state.Y, Z: this.state.Z,});
+        this.inMinus = true;
         if(this.inPlus){
             this.goToNext();
-        }
-        else{
-            console.log('on minus: x was: ' + this.state.X);
-            this.setState({X:this.state.X - 0.25, Y: this.state.Y, Z: this.state.Z,});
-            this.inMinus = true;
-            console.log('x become: ' + this.state.X);
         }
     }
 
