@@ -114,7 +114,7 @@ class GetLastX extends Component{
         <View style={{flex: 0.4,}}></View>
         <Text style = {styles.description}>
         1. Sphere Power Refinement should be close{'\n\n'}
-        2. Currently, Sphere Power = {this.state.X}{'\n\n'}
+        2. Currently, Sphere Power = <Text style = {{color : 'red'}}>{this.state.X}</Text>{'\n\n'}
         3. Fogged again by adding 0.75{'\n\n'}
         4. Subtract 0.25 from the patients{'\n\n'}
         5. Ask if the vision is better{'\n\n'}
