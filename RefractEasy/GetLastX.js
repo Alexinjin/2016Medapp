@@ -8,40 +8,37 @@ var DisplayResult = require('./DisplayResult')
 
 var styles = StyleSheet.create({
   container: {
-      marginTop: 100,
-      padding: 30,
-      alignItems: 'center',
+      padding: 15,
+      flexDirection:'column',
+      flex:1,
   },
   description: {
-      marginBottom: 50,
-      fontSize: 30,
-      textAlign: 'center',
+      fontSize: 20,
       color: '#2077E8',
+      flex: 1.5,
+  },
+  titleText : {
+    fontSize : 27,
+    flex : 2,
   },
   flowRight: {
-      padding:1,
-      marginTop:30,
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'stretch',
   },
-  dataText: {
-      padding: 5,
-      fontSize: 15,
-      textAlign: 'left',
-  },
+
   flowDown: {
       flexDirection: 'column',
       alignItems: 'center',
       alignSelf: 'stretch',
   },
   buttonText: {
-    fontSize: 15,
-    color: 'black',
-    textAlign: 'right',
+      fontSize: 25,
+      color: 'white',
+      alignSelf: 'center'
   },
   searchInput: {
-    flex: 4,
+    flex: 2,
     paddingLeft:4,
     fontSize: 15,
     borderWidth: 1,
@@ -50,14 +47,14 @@ var styles = StyleSheet.create({
     color: '#48BBEC'
   },
   button: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 3,
-    borderRadius: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
   },
 })
 
@@ -73,7 +70,7 @@ class GetLastX extends Component{
 
   PressNext(){
     this.props.navigator.push({
-      title : 'RefractEasy',
+      title : 'Result',
       component: DisplayResult,
       //make a if statement (if left, passPros:{leftX ....})
       passProps: {
@@ -86,26 +83,28 @@ class GetLastX extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <Text style = {styles.description}>Confirmation</Text>
-        <View>
-          <Text style = {styles.dataText}>1. Sphere Power Refinement should be close</Text>
-          <Text style = {styles.dataText}>2. Currently, Sphere Power = {this.state.X}</Text>
-          <Text style = {styles.dataText}>3. Fogged again by adding 0.75</Text>
-          <Text style = {styles.dataText}>4. Subtract 0.25 from the patients</Text>
-          <Text style = {styles.dataText}>5. Ask if the vision is better</Text>
-          <Text style = {styles.dataText}>6. Stop if no more appreciably improvement</Text>
-          <View style = {styles.flowRight}>
-            <TextInput
-            style = {styles.searchInput}
-            placeholder = ' Patient Stops At: '/>
-            <TouchableHighlight
-              style = {styles.button}
-              onPress={this.PressNext.bind(this)}
-              uderlayColor = 'blue'>
-              <Text style = {styles.buttonText}>Confirm</Text>
-            </TouchableHighlight>
-          </View>
+        <View style = {{flex:2,}}>
         </View>
+        <Text style = {styles.titleText}>Confirmation</Text>
+        <View style = {styles.flowRight}>
+          <TextInput
+          style = {styles.searchInput}
+          placeholder = ' Patient Stops At: '/>
+          <TouchableHighlight
+            style = {styles.button}
+            onPress={this.PressNext.bind(this)}
+            underlayColor='#99d9f4'>
+            <Text style = {styles.buttonText}>Confirm</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={{flex: 1,}}></View>
+        <Text style = {styles.description}>1. Sphere Power Refinement should be close</Text>
+        <Text style = {styles.description}>2. Currently, Sphere Power = {this.state.X}</Text>
+        <Text style = {styles.description}>3. Fogged again by adding 0.75</Text>
+        <Text style = {styles.description}>4. Subtract 0.25 from the patients</Text>
+        <Text style = {styles.description}>5. Ask if the vision is better</Text>
+        <Text style = {styles.description}>6. Stop if no more appreciably improvement</Text>
+        <Text style = {styles.description}>7. Put the result into the input box </Text>
       </View>
     );
   }
