@@ -10,7 +10,8 @@ import {
     TextInput
 } from 'react-native';
 
-//var EnterXYZ = require('./EnterXYZ');
+var RedPressedUpdate = require('./RedPressedUpdate');
+var WhitePressedUpdate = require('./WhitePressedUpdate');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -81,13 +82,34 @@ class CylinderPowerRefinemnet extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 10,
-            leftY: 0,
-            leftZ: 0,
-            rightX: 0,
-            rightY: 0,
-            rightZ: 0,
+            X: this.props.X,
+            Y: this.props.Y,
+            Z: this.props.Z
         };
+    }
+
+    onRedPressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: RedPressedUpdate,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+    }
+
+    onWhitePressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: WhitePressedUpdate,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
     }
 
     render(){
@@ -97,26 +119,22 @@ class CylinderPowerRefinemnet extends Component {
 
               <Text style={styles.dataText}>
               Need to focus both images on the retina (axes) {"\n"}
-              Twist JCC to align red or white dots at Z{"\n"}
+              Twist JCC to align red or white dots at {this.state.Z}{"\n"}
               Flip JCC, ask which flip patient prefers.{"\n"}
               </Text>
-
-
-
-
 
               <View style = {styles.flowRight}>
                 <TouchableHighlight
                   style = {styles.button}
                   uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>Red</Text>
+                  <Text style = {styles.buttonText} onPress = {this.onRedPressed.bind(this)}>Red</Text>
                 </TouchableHighlight>
               </View>
               <View style = {styles.flowRight}>
                 <TouchableHighlight
                   style = {styles.button}
                   uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>White</Text>
+                  <Text style = {styles.buttonText} onPress = {this.onWhitePressed.bind(this)}>White</Text>
                 </TouchableHighlight>
               </View>
 

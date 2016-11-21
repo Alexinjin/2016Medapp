@@ -40,14 +40,14 @@ var styles = StyleSheet.create({
   },
 })
 
-class DoneCylinder extends Component{
+class RedUpdateY extends Component{
   render(){
     return(
       <View style = {styles.container}>
         <View>
           <Text style = {styles.description}>Add 0.25 to CYL</Text>
           <Text style = {styles.description}> CYL: Y+0.25 </Text>
-          <Text style = {styles.dataText}>You're done with Cylinder refinement</Text>
+          <Text style = {styles.dataText}>You{"'"} re done with Cylinder refinement</Text>
           </View>
         <View style = {styles.flowRight}>
           <TouchableHighlight
@@ -62,4 +62,4 @@ class DoneCylinder extends Component{
   }
 }
 
-module.exports = DoneCylinder;
+module.exports = RedUpdateY;

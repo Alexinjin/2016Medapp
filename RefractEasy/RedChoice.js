@@ -10,7 +10,9 @@ import {
     TextInput
 } from 'react-native';
 
-//var EnterXYZ = require('./EnterXYZ');
+var RedPressedUpdate = require('./RedPressedUpdate');
+var RedUpdateY = require('./RedUpdateY');
+
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -77,18 +79,40 @@ var styles = StyleSheet.create({
 
 });
 
-class CylinderPowerRefinemnetRed extends Component {
+class RedChoice extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 10,
-            leftY: 0,
-            leftZ: 0,
-            rightX: 0,
-            rightY: 0,
-            rightZ: 0,
+            X: 0,
+            Y: 0,
+            Z: 0,
         };
     }
+
+    onRedPressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: RedPressedUpdate,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+    }
+
+    onWhitePressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: RedUpdateY,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+    }
+
 
     render(){
         return (
@@ -96,11 +120,9 @@ class CylinderPowerRefinemnetRed extends Component {
             <Text style={styles.description}>Cylinder Refinement Power </Text>
 
               <Text style={styles.dataText}>
-              Subtract 0.50 from CYL so:{"\n"}
-              CYL: *Y* - 0.50 ~set this as new Y~{"\n"}
-              Maintain spherical equivalent. Add 0.25 to Sph:{"\n"}
-              Sph: X + 0.25 ~set this as new X~{"\n"}
+              Repeat JCC Flip with new values and ask patient which is better.{"\n"}
               </Text>
+
 
 
 
@@ -110,14 +132,20 @@ class CylinderPowerRefinemnetRed extends Component {
                 <TouchableHighlight
                   style = {styles.button}
                   uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>Next</Text>
+                  <Text style = {styles.buttonText} onPress = {this.onRedPressed.bind(this)}>Red</Text>
                 </TouchableHighlight>
               </View>
-
+              <View style = {styles.flowRight}>
+                <TouchableHighlight
+                  style = {styles.button}
+                  uderlayColor = 'blue'>
+                  <Text style = {styles.buttonText} onPress = {this.onWhitePressed.bind(this)}>White</Text>
+                </TouchableHighlight>
+              </View>
 
             </View>
         );
     }
 }
 
-module.exports = CylinderPowerRefinemnetRed;
+module.exports = RedChoice;

@@ -82,7 +82,7 @@ class CylinderA extends Component {
           passProps: {
               X: this.state.X,
               Y: this.state.Y,
-              Z: this.state.Z,
+              Z: parseFloat(this.state.newZ)
           },
       });
 
