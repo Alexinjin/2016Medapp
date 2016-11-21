@@ -68,8 +68,8 @@ class UpdateCYLandPlaceAxis extends Component {
   constructor(props){
       super(props);
       this.state = {
-          X: this.props.X-0.25,
-          Y: this.props.Y+0.5,
+          X: this.props.X,
+          Y: 0.5,
           Z: this.props.Z
       };
   }
@@ -92,7 +92,7 @@ class UpdateCYLandPlaceAxis extends Component {
         <View style = {{flex:1.5,}}></View>
         <Text style = {styles.description}>
         White at {this.state.Z}{"\n\n"}
-        Add 0.50 to CYL and place Axis at {this.state.Z}{"\n\n"}
+        Add 0.50 to Cylinder and place Axis at {this.state.Z}{"\n\n"}
         Minus sphere by 0.25 to maintain the spherical equivalent</Text>
         <TouchableHighlight
           style = {styles.button}
