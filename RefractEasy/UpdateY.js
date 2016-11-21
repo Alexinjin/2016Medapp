@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-native';
-var LastScreen = require('./LastScreen');
+var LastScreen = require('./GetLastX');
 var styles = StyleSheet.create({
   container: {
       marginTop: 100,
@@ -74,7 +74,6 @@ class UpdateY extends Component{
         X: this.state.X,
         Y: this.state.Y,
         Z: this.state.Z,
-        eye: this.state.eye,
       },
     });
   }

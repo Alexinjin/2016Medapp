@@ -61,14 +61,13 @@ var styles = StyleSheet.create({
   },
 })
 
-class LastScreen extends Component{
+class GetLastX extends Component{
   constructor(props){
     super(props);
     this.state = {
         X: this.props.X,
         Y: this.props.Y,
         Z: this.props.Z,
-        eye: this.props.eye,
     };
   }
 
@@ -115,4 +114,4 @@ class LastScreen extends Component{
 
 
 
-module.exports = LastScreen;
+module.exports = GetLastX;
