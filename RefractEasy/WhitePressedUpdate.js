@@ -96,7 +96,7 @@ export default class WhitePressedUpdate extends Component {
             <View style = {{flex:1.5,}}></View>
             <Text style={styles.title}>Cylinder Refinement Power </Text>
             <Text style={styles.description}>
-            1. Add 0.50 to Cylinder so:{"\n\n"}
+            1. Add 0.50 to Cylinder so{"\n\n"}
             2. New Cylinder is <Text style = {{color : 'red'}}>{this.state.Y + 0.5}</Text>{"\n\n"}
             3. Maintain spherical equivalent. {"\n"}Subtract 0.25 to Sphere:{"\n\n"}
             4. New Sphere is <Text style = {{color : 'red'}}>{this.state.X - 0.25}</Text>{"\n\n"}

@@ -13,70 +13,63 @@ import {
 
 var RedLastUpdateY = require('./RedLastUpdateY');
 var styles = StyleSheet.create({
-    container: {
-        marginTop: 120,
-        padding: 30,
-        alignItems: 'center',
-    },
-    description: {
-        marginBottom: 50,
-        fontSize: 30,
-        textAlign: 'center',
-        color: '#2077E8',
-    },
-    image: {
-        width: 320,
-        height: 154,
-    },
-    flowRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
-        textAlign: 'left',
-        color: 'white',
-        backgroundColor: 'paleturquoise',
-        fontWeight: 'bold',
-        flex: 1,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
-        textShadowColor: 'lightseagreen',
-        textShadowOffset: {width: 3, height: 3,},
-        textShadowRadius: 10,
-    },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    button: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-        borderWidth: 3,
-        borderRadius: 10,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        marginTop: 30
-},
+  container: {
+      padding: 15,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    flex: 2,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  description: {
+      fontSize: 20,
+      color: '#2077E8',
+      flex: 5.5,
+  },
+  flowRight: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
 
-});
+  flowDown: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    textShadowColor: 'lightslategray',
+    textShadowOffset: {width: 3, height: 3,},
+    textShadowRadius: 10,
+  },
+  searchInput: {
+    flex: 2,
+    paddingLeft:4,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: '#48BBEC',
+    borderRadius: 10,
+    color: '#48BBEC'
+  },
+  button: {
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      // borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+  },
+})
 
 class RedPressedUpdate extends Component {
     constructor(props){
@@ -106,33 +99,33 @@ class RedPressedUpdate extends Component {
     render(){
         return (
             <View style={styles.container}>
+              <View style = {{flex:1.5,}}></View>
+              <Text style={styles.title}>Cylinder Refinement Power </Text>
+              <Text style={styles.description}>
+              1. Subtract 0.50 from Cylinder so:{"\n\n"}
+              2. New Cylinder is <Text style = {{color:'red',}}>{this.state.Y - 0.5}</Text>{"\n\n"}
+              3. Maintain spherical equivalent. {"\n\n"}
+              4. Add 0.25 to Sphere:{"\n\n"}
+              5. New Sphere is <Text style = {{color:'red'}}>{this.state.X + 0.25}</Text>{"\n\n"}
+              6. Repeat JCC Flip with new values and ask patient which is better.{"\n\n"}
+              </Text>
+                <TouchableHighlight
+                  style = {styles.button}
+                  onPress = {this.onRedPressed.bind(this)}
+                  underlayColor = '#7AD8FF'>
+                  <Text style = {styles.buttonText}>Red</Text>
+                </TouchableHighlight>
+                <View style = {{flex:0.3,}}></View>
+                <TouchableHighlight
+                  style = {styles.button}
+                  onPress = {this.onWhitePressed.bind(this)}
+                  underlayColor = '#7AD8FF'>
+                  <Text style = {styles.buttonText}>White</Text>
+                </TouchableHighlight>
+                <View style = {{flex:0.3,}}></View>
 
-            <Text style={styles.description}>Cylinder Refinement Power </Text>
-            <Text style={styles.dataText}>
-            Subtract 0.50 from Cylinder so:{"\n"}
-            New Cylinder is {this.state.Y - 0.5}{"\n"}
-            Maintain spherical equivalent. {"\n"} Add 0.25 to Sphere:{"\n"}
-            New Sphere is {this.state.X + 0.25}{"\n"}
-            {"\n"}
-            Repeat JCC Flip with new values and ask patient which is better.{"\n"}
-            </Text>
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                style = {styles.button}
-                uderlayColor = 'blue'>
-                <Text style = {styles.buttonText} onPress = {this.onRedPressed.bind(this)}>Red</Text>
-              </TouchableHighlight>
+
             </View>
-            <View style = {styles.flowRight}>
-              <TouchableHighlight
-                style = {styles.button}
-                uderlayColor = 'blue'>
-                <Text style = {styles.buttonText} onPress = {this.onWhitePressed.bind(this)}>White</Text>
-              </TouchableHighlight>
-            </View>
-
-
-        </View>
         );
     }
 }
