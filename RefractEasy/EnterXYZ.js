@@ -109,15 +109,15 @@ class EnterXYZ extends Component {
                 <View style={styles.flowRight}>
                     <TextInput style={styles.inputBox}
                         onChange={this.onXChanged.bind(this)}
-                        keyboardType='number-pad'
+                        keyboardType='numeric'
                         placeholder='Sph'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onYChanged.bind(this)}
-                        keyboardType='number-pad'
+                        keyboardType='numeric'
                         placeholder='Cyl'/>
                     <TextInput style={styles.inputBox}
                         onChange={this.onZChanged.bind(this)}
-                        keyboardType='number-pad'
+                        keyboardType='numeric'
                         placeholder='Axis'/>
                 </View>
                 <TouchableHighlight style={styles.button}

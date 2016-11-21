@@ -95,7 +95,7 @@ class GetLastX extends Component{
           <TextInput
           style = {styles.searchInput}
           onChange={this.onXChanged.bind(this)}
-          keyboardType='number-pad'
+          keyboardType='numeric'
           placeholder = ' Patient Stops At: '/>
           <TouchableHighlight
             style = {styles.button}

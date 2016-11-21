@@ -105,7 +105,7 @@ class CylinderA extends Component {
                 <TextInput
                   style={styles.inputBox}
                   placeholder = 'Enter New Axis'
-                  keyboardType='number-pad'
+                  keyboardType='numeric'
                   onChangeText={(newZ) => this.setState({newZ})}/>
                 <TouchableHighlight style={styles.button}
                     onPress = {this.onNextPressed.bind(this)}
