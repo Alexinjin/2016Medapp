@@ -111,7 +111,7 @@ class CylinderB extends Component {
               <TouchableHighlight
                 style = {styles.button}
                 onPress = {this.on90Pressed.bind(this)}
-                uderlayColor = '#7AD8FF'>
+                underlayColor = '#7AD8FF'>
                 <Text style = {styles.buttonText} >White at 90</Text>
               </TouchableHighlight>
               <View style={{flex: 0.1,}}>
@@ -119,7 +119,7 @@ class CylinderB extends Component {
               <TouchableHighlight
                 style = {styles.button}
                 onPress = {this.on180Pressed.bind(this)}
-                uderlayColor = '#7AD8FF'>
+                underlayColor = '#7AD8FF'>
                 <Text style = {styles.buttonText}>White at 180</Text>
               </TouchableHighlight>
               <View style={{flex: 0.1,}}>
@@ -127,7 +127,7 @@ class CylinderB extends Component {
               <TouchableHighlight
                 style = {styles.button}
                 onPress = {this.onNoPrefPressed.bind(this)}
-                uderlayColor = '#7AD8FF'>
+                underlayColor = '#7AD8FF'>
                 <Text style = {styles.buttonText}>No Preference</Text>
               </TouchableHighlight>
               <View style={{flex: 0.3,}}>
