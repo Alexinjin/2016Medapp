@@ -10,33 +10,30 @@ import {
 
 var styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
-        marginTop: 80,
         padding: 15,
-        flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
     },
     description: {
-        fontSize: 15,
-        textAlign: 'center',
+        fontSize: 20,
+        // textAlign: 'center',
+        color: '#2077E8',
         flex: 1,
     },
     button: {
-        marginTop: 50,
-        height: 36,
-        flexDirection: 'row',
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
-        borderWidth: 1,
         borderRadius: 8,
-        marginBottom: 10,
+        borderWidth: 2,
         alignSelf: 'stretch',
         justifyContent: 'center',
+        alignItems: 'center',
         flex: 1,
     },
     buttonText: {
-        fontSize: 18,
+        fontSize: 25,
         color: 'white',
         alignSelf: 'center'
     },
@@ -51,19 +48,18 @@ class SphIns extends Component{
             X: this.props.X + 0.75,
             Y: this.props.Y,
             Z: this.props.Z,
-            eye: this.props.eye,
         };
+        console.log('SphIns: x: ' + this.state.X + ', y: ' + this.state.Y + ', z: ' + this.state.Z);
     }
 
     onNextPressed(){
         this.props.navigator.push({
-            title: 'Sphere Test',
+            title: 'Sphere',
             component: SphTest,
             passProps: {
                 X: this.state.X,
                 Y: this.state.Y,
                 Z: this.state.Z,
-                eye: this.state.eye,
             },
         });
     }
@@ -72,19 +68,33 @@ class SphIns extends Component{
     render(){
         return(
             <View style={styles.container}>
+                <View style={{flex: 2,}}>
+                </View>
                 <Text style={styles.description}>
                 Sphere will establish both parts of the two axes as close as possible to the plane of the retina
+                </Text>
+                <Text style={styles.description}>
                 Occlude one eye
+                </Text>
+                <Text style={styles.description}>
                 "Fog" the patient by placing {this.state.X}
+                </Text>
+                <Text style={styles.description}>
                 Ask patient to read the chart
+                </Text>
+                <Text style={styles.description}>
                 (pt should not see better than 20/30)
                 </Text>
+                <View style={{flex: 3,}}>
+                </View>
                 <TouchableHighlight style={styles.button}
                     onPress={this.onNextPressed.bind(this)}>
                     <Text style={styles.buttonText}>
                         NEXT
                     </Text>
                 </TouchableHighlight>
+                <View style={{flex: 1,}}>
+                </View>
             </View>
         );
     }
