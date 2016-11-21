@@ -118,7 +118,7 @@ class CylinderA extends Component {
               </View>
 
               <Text style={styles.description}>
-              1. Place Red or White dots Axis at <Text style={[styles.description, {color: 'red',}]}>{this.state.Z+45} </Text>{'\n'}{'\n'}
+              1. Place Red or White dots Axis at <Text style={[styles.description, {color: 'red',}]}>{(this.state.Z+45) % 180} </Text>{'\n'}{'\n'}
               2. Flip the cross cylinder and present as 1 or 2{'\n'}{'\n'}
               3. Move towards white dots on best choice flip (15 degrees){'\n'}{'\n'}
               4. Keep changing and switching axis until reverse choice (counter){'\n'}{'\n'}
