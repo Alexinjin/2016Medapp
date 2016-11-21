@@ -7,68 +7,43 @@ var CylinderB = require('./CylinderB');
 
 var styles = StyleSheet.create({
     container: {
-        marginTop: 120,
-        padding: 30,
-        alignItems: 'center',
+        padding: 15,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
+    },
+    title: {
+      fontSize: 30,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      flex: 1,
     },
     description: {
-        marginBottom: 50,
-        fontSize: 30,
-        textAlign: 'center',
+        fontSize: 20,
+        // textAlign: 'center',
         color: '#2077E8',
-    },
-    image: {
-        width: 320,
-        height: 154,
-    },
-    flowRight: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
-        textAlign: 'left',
-        color: 'white',
-        backgroundColor: 'paleturquoise',
-        fontWeight: 'bold',
         flex: 1,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
-        textShadowColor: 'lightseagreen',
+    },
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        // borderWidth: 2,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    buttonText: {
+        fontSize: 25,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        textShadowColor: 'lightslategray',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    button: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-        borderWidth: 3,
-        borderRadius: 10,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        marginTop: 30
-},
-
 });
 
 
@@ -78,10 +53,11 @@ class CylinderAxis extends Component{
   constructor(props){
       super(props);
       this.state = {
-          X: 10,
-          Y: 0.5,
-          Z: 0
+          X: this.props.X,
+          Y: this.props.Y,
+          Z: this.props.Z,
       };
+      console.log('CylinerAxis: x: ' + this.state.X + ', y: ' + this.state.Y + ', z: ' + this.state.Z);
   }
 
   onNextPressedToA(){
@@ -114,30 +90,34 @@ class CylinderAxis extends Component{
     if (this.state.Y > 1){
       text =  <TouchableHighlight
               style = {styles.button}
-              uderlayColor = 'blue'>
-              <Text style = {styles.dataText}
-              onPress = {this.onNextPressedToA.bind(this)}>Next</Text>
+              onPress = {this.onNextPressedToA.bind(this)}
+              uderlayColor = '#7AD8FF'>
+                <Text
+                style = {styles.buttonText}>
+                  Next
+                </Text>
               </TouchableHighlight>;
       }else {
       text =  <TouchableHighlight
               style = {styles.button}
-              uderlayColor = 'blue'>
-              <Text style = {styles.dataText}
-              onPress = {this.onNextPressedToB.bind(this)}>Next</Text>
+              onPress = {this.onNextPressedToB.bind(this)}
+              uderlayColor = '#7AD8FF'>
+                <Text style = {styles.buttonText}>
+                  Next
+                </Text>
               </TouchableHighlight>;
-            }
+            };
     return(
       <View style = {styles.container}>
-        <View>
-          <Text style = {styles.description}>Cylinder Axis Refinement</Text>
-          <Text style = {styles.dataText}>Isolate 20/30 line or one line above best vision </Text>
-          <Text style = {styles.dataText}>Let JCC straddle the instrument</Text>
-          </View>
-        <View style = {styles.flowRight}>
+        <View style={{flex: 1,}}>
+        </View>
+        <Text style = {styles.title}>Cylinder Axis Refinement</Text>
+        <Text style = {styles.description}>1. Isolate 20/30 line or one line above best vision </Text>
+        <Text style = {styles.description}>2. Let JCC straddle the instrument</Text>
         {text}
+        <View style={{flex: 1,}}>
         </View>
       </View>
-
     );
   }
 }
