@@ -9,56 +9,71 @@ import{
 	ActivityIndicator,
 	Image
 } from 'react-native';
+
 var WhiteLastUpdateY = require('./WhiteLastUpdateY');
 var WhitePressedUpdate = require('./WhitePressedUpdate');
+
+
 var styles = StyleSheet.create({
-	description:{
-		marginBottom: 20,
-		fontSize: 18,
-		textAlign: 'center',
-		color: 'black'
-	},
-	container:{
-		padding: 30,
-		marginTop: 65,
-		alignItems: 'center'
-	},
-	flowRight: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		alignSelf: 'stretch'
-	},
-	buttonText: {
-		fontSize: 18,
-		color: 'white',
-		alignSelf: 'center'
-	},
-	button: {
-		height: 36,
-		flex: 1,
-		flexDirection: 'row',
-		backgroundColor: '#48BBEC',
-		borderColor: '#48BBEC',
-		borderWidth: 1,
-		borderRadius: 8,
-		marginBottom: 10,
-		alignSelf: 'stretch',
-		justifyContent: 'center'
-	},
-	searchInput: {
-		height: 36,
-		padding: 4,
-		marginRight: 5,
-		flex: 4,
-		fontSize: 18,
-		borderWidth: 1,
-		borderColor: '#48BBEC',
-		borderRadius: 8,
-		color: '#48BBEC'
-	}
+  container: {
+      padding: 15,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      // alignItems: 'center',
+      flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    flex: 2.8,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  description: {
+      fontSize: 20,
+      // textAlign: 'center',
+      color: '#2077E8',
+      flex: 5.5,
+  },
+  flowRight: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
 
-
-});
+  flowDown: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+  },
+  buttonText: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    textShadowColor: 'lightslategray',
+    textShadowOffset: {width: 3, height: 3,},
+    textShadowRadius: 10,
+  },
+  searchInput: {
+    flex: 2,
+    paddingLeft:4,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: '#48BBEC',
+    borderRadius: 10,
+    color: '#48BBEC'
+  },
+  button: {
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderRadius: 8,
+      // borderWidth: 2,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+  },
+})
 
 class WhiteChoice extends Component{
 	constructor(props){
@@ -95,26 +110,24 @@ class WhiteChoice extends Component{
 	render(){
 		return(
 			<View style={styles.container}>
-			<Text style={styles.description}>
-			Repeat JCC Flip with new values and ask patient which is better!</Text>
-			<View style={styles.flowRight}>
-			<TouchableHighlight style={styles.button}
-				  onPress={this.PressRed.bind(this)}
-			      underlayColor='blue'>
-			<Text style={styles.buttonText}>Red</Text>
-			</TouchableHighlight>
-			</View>
-			<View style={styles.flowRight}>
-			<TouchableHighlight style={styles.button}
-				onPress={this.PressWhite.bind(this)}
-			    underlayColor='blue'>
-			<Text style={styles.buttonText}>White</Text>
-			</TouchableHighlight>
-			</View>
+				<View style = {{flex:3,}}></View>
+				<Text style={styles.description}>
+				Repeat JCC Flip with new values and ask patient which is better!</Text>
+				<TouchableHighlight style={styles.button}
+					  onPress={this.PressRed.bind(this)}
+				      underlayColor='#7AD8FF'>
+				<Text style={styles.buttonText}>Red</Text>
+				</TouchableHighlight>
+				<View style = {{flex:0.3,}}></View>
+				<TouchableHighlight style={styles.button}
+					onPress={this.PressWhite.bind(this)}
+				    underlayColor='#7AD8FF'>
+				<Text style={styles.buttonText}>White</Text>
+				</TouchableHighlight>
+				<View style = {{flex:1,}}></View>
 			</View>
 		);
 	}
 }
 
 module.exports = WhiteChoice;
-
