@@ -7,10 +7,11 @@ import {
     Text,
     Image,
     TouchableHighlight,
-    TextInput
+    TextInput,
+    NavigatorIOS
 } from 'react-native';
 
-var RedChoice = require('./RedChoice');
+var RedLastUpdateY = require('./RedLastUpdateY');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -81,47 +82,57 @@ class RedPressedUpdate extends Component {
     constructor(props){
         super(props);
         this.state = {
-          X: this.props.X+0.25,
-          Y: this.props.Y-0.5,
+          X: this.props.X,
+          Y: this.props.Y,
           Z: this.props.Z,
         };
     }
 
-    onNextPressed(){
+    onRedPressed(){
+      this.setState({X:this.state.X + 0.25,Y:this.state.Y-0.5});
+    }
+
+    onWhitePressed(){
       this.props.navigator.push({
           title: 'Cylinder',
-          component: RedChoice,
+          component: RedLastUpdateY,
           passProps: {
               X: this.state.X,
               Y: this.state.Y,
               Z: this.state.Z,
           },
-    });}
-
+      });
+    }
     render(){
         return (
             <View style={styles.container}>
+
             <Text style={styles.description}>Cylinder Refinement Power </Text>
-
-              <Text style={styles.dataText}>
-              Subtract 0.50 from CYL so:{"\n"}
-              New Cylinder is {this.state.Y-0.5}{"\n"}
-              Maintain spherical equivalent. {"\n"} Add 0.25 to Sphere:{"\n"}
-              New Sphere is {this.state.X+0.25}
-              </Text>
-
-              <View style = {styles.flowRight}>
-                <TouchableHighlight
-                  style = {styles.button}
-                  uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText} onPress = {this.onNextPressed.bind(this)}>Next</Text>
-                </TouchableHighlight>
-              </View>
-
-
-
-
+            <Text style={styles.dataText}>
+            Subtract 0.50 from CYL so:{"\n"}
+            New Cylinder is {this.state.Y - 0.5}{"\n"}
+            Maintain spherical equivalent. {"\n"} Add 0.25 to Sphere:{"\n"}
+            New Sphere is {this.state.X + 0.25}{"\n"}
+            {"\n"}
+            Repeat JCC Flip with new values and ask patient which is better.{"\n"}
+            </Text>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                style = {styles.button}
+                uderlayColor = 'blue'>
+                <Text style = {styles.buttonText} onPress = {this.onRedPressed.bind(this)}>Red</Text>
+              </TouchableHighlight>
             </View>
+            <View style = {styles.flowRight}>
+              <TouchableHighlight
+                style = {styles.button}
+                uderlayColor = 'blue'>
+                <Text style = {styles.buttonText} onPress = {this.onWhitePressed.bind(this)}>White</Text>
+              </TouchableHighlight>
+            </View>
+
+
+        </View>
         );
     }
 }
