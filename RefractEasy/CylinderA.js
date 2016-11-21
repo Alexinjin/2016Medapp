@@ -33,9 +33,9 @@ var styles = StyleSheet.create({
     },
     description: {
         fontSize: 20,
-        // textAlign: 'center',
+        textAlign: 'left',
         color: '#2077E8',
-        flex: 1.3,
+        flex: 6,
     },
     inputBox: {
         // height: 36,
@@ -97,7 +97,7 @@ class CylinderA extends Component {
     render(){
         return (
             <View style={styles.container}>
-              <View style={{flex: 1.5,}}>
+              <View style={{flex: 2,}}>
               </View>
               <Text style={styles.title}>Cylinder {'>'} 1</Text>
 
@@ -116,19 +116,21 @@ class CylinderA extends Component {
               <View style={{flex: 1,}}>
               </View>
 
-              <Text style={[styles.description, {textAlign: 'center'}]}> Cyl = {this.state.Y} </Text>
-              <Text style={styles.description}>
-              1. Place Red or White dots Axis at {this.state.Z+45}</Text>
-              <Text style={styles.description}>
-              2. Flip the cross cylinder and present as 1 or 2</Text>
-              <Text style={styles.description}>
-              3. Move towards white dots on best choice flip (15 degrees)</Text>
-              <Text style={styles.description}>
-              4. Keep changing and switching axis until reverse choice (counter)</Text>
-              <Text style={styles.description}>
-              5. Use 5 degree increments</Text>
-              <Text style={styles.description}>
+              <Text style={styles.description}> Cyl = {this.state.Y}{'\n'}
+              1. Place Red or White dots Axis at {this.state.Z+45}{'\n'}
+
+              2. Flip the cross cylinder and present as 1 or 2{'\n'}
+
+              3. Move towards white dots on best choice flip (15 degrees){'\n'}
+
+              4. Keep changing and switching axis until reverse choice (counter){'\n'}
+
+              5. Use 5 degree increments{'\n'}
+
               6. Then smaller amounts when reversed again until suitable</Text>
+
+              <View style={{flex: 1,}}>
+              </View>
 
             </View>
         );
