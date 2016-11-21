@@ -56,7 +56,7 @@ var styles = StyleSheet.create({
   },
 })
 
-class Screen_6e2 extends Component{
+class UpdateY extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -100,4 +100,4 @@ class Screen_6e2 extends Component{
   }
 }
 
-module.exports = Screen_6e2;
+module.exports = UpdateY;
