@@ -62,7 +62,21 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'stretch',
     },
+    button: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderWidth: 3,
+        borderRadius: 10,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        marginTop: 30
+},
+
 });
+
+
 
 class CylinderA extends Component {
     constructor(props){
@@ -82,7 +96,7 @@ class CylinderA extends Component {
           passProps: {
               X: this.state.X,
               Y: this.state.Y,
-              Z: this.state.Z,
+              Z: parseFloat(this.state.newZ)
           },
       });
 

@@ -4,42 +4,74 @@ import {StyleSheet, View, Text, TextInput, TouchableHighlight} from 'react-nativ
 
 var CylinderA = require('./CylinderA');
 var CylinderB = require('./CylinderB');
+
 var styles = StyleSheet.create({
-  container: {
-      marginTop: 100,
-      padding: 30,
-      alignItems: 'center',
-  },
-  description: {
-      marginBottom: 50,
-      fontSize: 25,
-      textAlign: 'left',
-      color: '#2077E8',
-  },
-  flowRight: {
-      paddingLeft: 5,
-      paddingRight: 5,
-      marginTop: 50,
-      flexDirection: 'row',
-      alignItems: 'center',
-      alignSelf: 'stretch',
-  },
-  dataText: {
-      padding: 5,
-      fontSize: 15,
-      textAlign: 'left',
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 3,
-    borderRadius: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
+    container: {
+        marginTop: 120,
+        padding: 30,
+        alignItems: 'center',
+    },
+    description: {
+        marginBottom: 50,
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#2077E8',
+    },
+    image: {
+        width: 320,
+        height: 154,
+    },
+    flowRight: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'stretch',
+    },
+    smallTexts: {
+        marginTop: 50,
+        marginBottom: 50,
+        marginLeft: 10,
+        marginRight: 10,
+        fontSize: 15,
+        textAlign: 'left',
+        color: 'white',
+        backgroundColor: 'paleturquoise',
+        fontWeight: 'bold',
+        flex: 1,
+        padding: 10,
+        borderWidth: 2,
+        borderColor: 'paleturquoise',
+        textShadowColor: 'lightseagreen',
+        textShadowOffset: {width: 3, height: 3,},
+        textShadowRadius: 10,
+    },
+    dataText: {
+        fontSize: 15,
+        textAlign: 'center',
+        textShadowColor: 'gray',
+        textShadowOffset: {width: 1, height: 1,},
+        textShadowRadius: 10,
+    },
+    flowDown: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        alignSelf: 'stretch',
+    },
+    button: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderWidth: 3,
+        borderRadius: 10,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        marginTop: 30
+},
+
 });
+
+
 
 
 class CylinderAxis extends Component{
@@ -47,7 +79,7 @@ class CylinderAxis extends Component{
       super(props);
       this.state = {
           X: 10,
-          Y: 1.5,
+          Y: 0.5,
           Z: 0
       };
   }

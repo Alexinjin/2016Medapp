@@ -10,7 +10,8 @@ import {
     TextInput
 } from 'react-native';
 
-//var EnterXYZ = require('./EnterXYZ');
+var CylinderB_noPref = require('./CylinderB_noPref');
+var Display90or180 = require('./Display90or180');
 var styles = StyleSheet.create({
     container: {
         marginTop: 120,
@@ -81,15 +82,46 @@ class CylinderB extends Component {
     constructor(props){
         super(props);
         this.state = {
-            leftX: 10,
-            leftY: 0,
-            leftZ: 0,
-            rightX: 0,
-            rightY: 0,
-            rightZ: 0,
+          X: this.props.X,
+          Y: this.props.Y,
+          Z: this.props.Z,
         };
     }
+    on90Pressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: Display90or180,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: 90,
+          },
+      });
+    }
 
+    on180Pressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: Display90or180,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: 180,
+          },
+      });
+    }
+
+    onNoPrefPressed(){
+      this.props.navigator.push({
+          title: 'Cylinder',
+          component: CylinderB_noPref,
+          passProps: {
+              X: this.state.X,
+              Y: this.state.Y,
+              Z: this.state.Z,
+          },
+      });
+    }
     render(){
         return (
             <View style={styles.container}>
@@ -109,21 +141,21 @@ class CylinderB extends Component {
                 <TouchableHighlight
                   style = {styles.button}
                   uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>White at 90</Text>
+                  <Text style = {styles.buttonText} onPress = {this.on90Pressed.bind(this)}>White at 90</Text>
                 </TouchableHighlight>
               </View>
               <View style = {styles.flowRight}>
                 <TouchableHighlight
                   style = {styles.button}
                   uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>White at 180</Text>
+                  <Text style = {styles.buttonText} onPress = {this.on180Pressed.bind(this)}>White at 180</Text>
                 </TouchableHighlight>
               </View>
               <View style = {styles.flowRight}>
                 <TouchableHighlight
                   style = {styles.button}
                   uderlayColor = 'blue'>
-                  <Text style = {styles.buttonText}>No Preference</Text>
+                  <Text style = {styles.buttonText} onPress = {this.onNoPrefPressed.bind(this)}>No Preference</Text>
                 </TouchableHighlight>
               </View>
 
