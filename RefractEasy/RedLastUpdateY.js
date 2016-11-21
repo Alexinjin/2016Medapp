@@ -67,14 +67,18 @@ class RedLastUpdateY extends Component{
   render(){
     return(
       <View style = {styles.container}>
-        <View style={{flex: 2.5,}}>
+        <View style={{flex: 1,}}>
         </View>
+        <Text style = {styles.title}>Final Cylinder Value</Text>
 
-        <Text style = {styles.description}>Add 0.25 to Cylinder{'\n\n'}
-        Cylinder now is <Text style={{color: 'red',}}>{this.state.Y+0.25} </Text>{'\n\n'}
-        You're done with Cylinder refinement
-        </Text>
-
+        <Text style = {styles.description}>
+        1. Add 0.25 to Cylinder{'\n\n'}
+        2. Cylinder now is <Text style={{color: 'red',}}>{this.state.Y+0.25} </Text>{'\n\n'}
+        3. You are done with Cylinder refinement</Text>
+        <View style={{flex: 0.5,}}>
+        </View>
+        <View style={{flex: 1,}}>
+        </View>
         <TouchableHighlight
           style = {styles.button}
           onPress={this.PressNextRight.bind(this)}
@@ -82,7 +86,7 @@ class RedLastUpdateY extends Component{
           <Text style = {styles.buttonText}>Next</Text>
         </TouchableHighlight>
 
-        <View style={{flex: 1,}}>
+        <View style={{flex: 0.5,}}>
         </View>
       </View>
 

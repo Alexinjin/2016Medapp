@@ -48,8 +48,8 @@ class Display90or180 extends Component{
   constructor(props){
       super(props);
       this.state = {
-          X: this.props.X-0.25,
-          Y: this.props.Y+0.5,
+          X: this.props.X,
+          Y: 0.5,
           Z: this.props.Z
       };
   }
@@ -72,7 +72,7 @@ class Display90or180 extends Component{
       <View style = {styles.container}>
         <View style = {{flex:1.5,}}></View>
         <Text style = {styles.title}>White at <Text style={{color: 'red'}}>{this.state.Z}</Text></Text>
-        <Text style = {styles.description}>1. Add 0.50 to CYL and place Axis at <Text style={{color: 'red'}}>{this.state.Z}</Text>{'\n'}{'\n'}
+        <Text style = {styles.description}>1. Add 0.50 to Cylinder and place Axis at <Text style={{color: 'red'}}>{this.state.Z}</Text>{'\n'}{'\n'}
         2. Minus sphere by 0.25 to maintain the spherical equivalent</Text>
         <TouchableHighlight
           style = {styles.button}
