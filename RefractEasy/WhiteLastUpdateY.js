@@ -56,7 +56,7 @@ var styles = StyleSheet.create({
   },
 })
 
-class UpdateY extends Component{
+class WhiteLastUpdateY extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -98,4 +98,4 @@ class UpdateY extends Component{
   }
 }
 
-module.exports = UpdateY;
+module.exports = WhiteLastUpdateY;

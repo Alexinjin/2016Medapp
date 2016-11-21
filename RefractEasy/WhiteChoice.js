@@ -60,6 +60,7 @@ var styles = StyleSheet.create({
 
 });
 
+<<<<<<< HEAD:RefractEasy/Choose_Red_White.js
 class Choose_Red_White extends Component{
 	constructor(props){
     super(props);
@@ -92,6 +93,10 @@ class Choose_Red_White extends Component{
       },
     });
   }
+=======
+class WhiteChoice extends Component{
+
+>>>>>>> 4c54a7e56ea9397e430c62556d8118ad6b0f4848:RefractEasy/WhiteChoice.js
 	render(){
 		return(
 			<View style={styles.container}>
@@ -116,4 +121,8 @@ class Choose_Red_White extends Component{
 	}
 }
 
+<<<<<<< HEAD:RefractEasy/Choose_Red_White.js
 module.exports = Choose_Red_White;
+=======
+module.exports = WhiteChoice;
+>>>>>>> 4c54a7e56ea9397e430c62556d8118ad6b0f4848:RefractEasy/WhiteChoice.js
