@@ -19,7 +19,9 @@ var styles = StyleSheet.create({
       flex: 1,
   },
   titleText : {
-    fontSize : 27,
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
     flex : 1,
   },
   flowRight: {
@@ -67,16 +69,7 @@ class DisplayResult extends Component{
     };
   }
   PressNext(){
-    this.props.navigator.push({
-      title : 'RefractEasy',
-      component: Start,
-      //make a if statement (if left, passPros:{leftX ....})
-      passProps: {
-          X: this.state.X,
-          Y: this.state.Y,
-          Z: this.state.Z,
-      },
-    });
+    this.props.navigator.popToTop();
   }
   render(){
     return(

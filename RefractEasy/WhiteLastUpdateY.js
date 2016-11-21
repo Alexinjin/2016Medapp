@@ -15,13 +15,13 @@ var styles = StyleSheet.create({
       fontSize: 20,
       color: '#2077E8',
       flex: 1,
-      backgroundColor: 'transparent',
   },
 
   titleText : {
-    fontSize : 27,
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
     flex : 2,
-    backgroundColor: 'transparent',
   },
 
   flowRight: {
@@ -76,7 +76,7 @@ class WhiteLastUpdateY extends Component{
       component: LastScreen,
       passProps: {
         X: this.state.X,
-        Y: this.state.Y,
+        Y: this.state.Y - 0.25,
         Z: this.state.Z,
       },
     });
