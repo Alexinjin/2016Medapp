@@ -6,74 +6,66 @@ import {
     View,
     Text,
     Image,
-    TextInput
+    TextInput,
+    TouchableHighlight,
 } from 'react-native';
 
 var CylinderPowerRefinemnet = require('./CylinderPowerRefinemnet');
 var styles = StyleSheet.create({
     container: {
-        marginTop: 120,
-        padding: 30,
-        alignItems: 'center',
+        padding: 15,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        // alignItems: 'center',
+        flex: 1,
     },
-    description: {
-        marginBottom: 50,
-        fontSize: 30,
-        textAlign: 'center',
-        color: '#2077E8',
-    },
-    image: {
-        width: 320,
-        height: 154,
+    title: {
+      fontSize: 30,
+      flex: 2,
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
     flowRight: {
         flexDirection: 'row',
         alignItems: 'center',
         alignSelf: 'stretch',
+        flex: 0.6,
     },
-    smallTexts: {
-        marginTop: 50,
-        marginBottom: 50,
-        marginLeft: 10,
-        marginRight: 10,
-        fontSize: 15,
-        textAlign: 'left',
+    description: {
+        fontSize: 20,
+        // textAlign: 'center',
+        color: '#2077E8',
+        flex: 1.3,
+    },
+    inputBox: {
+        // height: 36,
+        padding: 4,
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        color: '#48BBEC',
+        flex: 3,
+    },
+    button: {
+        backgroundColor: '#48BBEC',
+        borderColor: '#48BBEC',
+        borderRadius: 8,
+        // borderWidth: 2,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 2,
+    },
+    buttonText: {
+        fontSize: 20,
+        textAlign: 'center',
         color: 'white',
-        backgroundColor: 'paleturquoise',
         fontWeight: 'bold',
-        flex: 1,
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'paleturquoise',
-        textShadowColor: 'lightseagreen',
+        textShadowColor: 'lightslategray',
         textShadowOffset: {width: 3, height: 3,},
         textShadowRadius: 10,
     },
-    dataText: {
-        fontSize: 15,
-        textAlign: 'center',
-        textShadowColor: 'gray',
-        textShadowOffset: {width: 1, height: 1,},
-        textShadowRadius: 10,
-    },
-    flowDown: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        alignSelf: 'stretch',
-    },
-    button: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#48BBEC',
-        borderColor: '#48BBEC',
-        borderWidth: 3,
-        borderRadius: 10,
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        marginTop: 30
-},
-
 });
 
 
@@ -105,27 +97,38 @@ class CylinderA extends Component {
     render(){
         return (
             <View style={styles.container}>
-              <Text style={styles.description}>Cylinder {"\n"} Y {'>'} 1</Text>
-
-              <Text style={styles.dataText}> Cyl = {this.state.Y}  {"\n"}
-              Place Red or White dots Axis at {this.state.Z+45} {"\n"}
-              Flip the cross cylinder and present as 1 or 2 {"\n"}
-              Move towards white dots on best choice flip (15 degrees) {"\n"}
-              Keep changing and switching axis until reverse choice (counter) {"\n"}
-              Use 5 degree increments {"\n"}
-              Then smaller amounts when reversed again until suitable
-              </Text>
-
-              <TextInput
-                style={{height: 40}}
-                placeholder = 'placeholder'
-                onChangeText={(newZ) => this.setState({newZ})}
-              />
+              <View style={{flex: 1.5,}}>
+              </View>
+              <Text style={styles.title}>Cylinder {'>'} 1</Text>
 
               <View style={styles.flowRight}>
-                <Text style= {styles.smallTexts} onPress = {this.onNextPressed.bind(this)}> Finish </Text>
+                <TextInput
+                  style={styles.inputBox}
+                  placeholder = 'Enter New Axis'
+                  keyboardType='number-pad'
+                  onChangeText={(newZ) => this.setState({newZ})}/>
+                <TouchableHighlight style={styles.button}
+                    underlayColor='#7AD8FF'>
+                  <Text style= {styles.buttonText} onPress = {this.onNextPressed.bind(this)}> Finish </Text>
+                </TouchableHighlight>
               </View>
 
+              <View style={{flex: 1,}}>
+              </View>
+
+              <Text style={[styles.description, {textAlign: 'center'}]}> Cyl = {this.state.Y} </Text>
+              <Text style={styles.description}>
+              1. Place Red or White dots Axis at {this.state.Z+45}</Text>
+              <Text style={styles.description}>
+              2. Flip the cross cylinder and present as 1 or 2</Text>
+              <Text style={styles.description}>
+              3. Move towards white dots on best choice flip (15 degrees)</Text>
+              <Text style={styles.description}>
+              4. Keep changing and switching axis until reverse choice (counter)</Text>
+              <Text style={styles.description}>
+              5. Use 5 degree increments</Text>
+              <Text style={styles.description}>
+              6. Then smaller amounts when reversed again until suitable</Text>
 
             </View>
         );
